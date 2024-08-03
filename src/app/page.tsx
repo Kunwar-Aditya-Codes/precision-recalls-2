@@ -1,113 +1,214 @@
-import Image from "next/image";
+'use client';
+
+import MobileNav from '@/components/MobileNav';
+import { cn } from '@/lib/utils';
+import { ArrowRight } from 'lucide-react';
+import { Calistoga } from 'next/font/google';
+import Image from 'next/image';
+import Link from 'next/link';
+import { motion } from 'framer-motion';
+import TiltCard from '@/components/TiltCard';
+
+const calistago = Calistoga({
+  weight: ['400'],
+  subsets: ['latin'],
+});
+
+export const NAV_ITEMS = [
+  {
+    title: 'About Us',
+    link: '/about-us',
+  },
+  {
+    title: 'Services',
+    link: '#services',
+  },
+  {
+    title: 'Portfolio',
+    link: '#portfolio',
+  },
+  {
+    title: 'Contact Us',
+    link: '/contact-us',
+  },
+];
+
+const SERVICES = [
+  {
+    title: 'Web Development',
+    description:
+      'Building responsive and high-quality websites tailored to your business needs, ensuring seamless user experiences across all devices.',
+    image: '/services/web.png',
+  },
+  {
+    title: 'App Development',
+    description:
+      'Creating intuitive and engaging mobile applications for iOS and Android platforms to enhance your business reach and user engagement.',
+    image: '/services/app.png',
+  },
+  {
+    title: 'Data Analytics',
+    description:
+      'Leveraging data to provide actionable insights and drive informed decision-making, helping you unlock the full potential of your data.',
+    image: '/services/data.png',
+  },
+  {
+    title: 'Digital Marketing',
+    description:
+      'Developing comprehensive digital marketing strategies to boost your online presence, increase traffic, and drive conversions through SEO, PPC, and social media marketing.',
+    image: '/services/digital.png',
+  },
+  {
+    title: 'Software Development',
+    description:
+      'Designing and developing custom software solutions to streamline your business processes, improve efficiency, and meet your specific requirements.',
+    image: '/services/software.png',
+  },
+  {
+    title: 'E-commerce Setup',
+    description:
+      'Setting up and optimizing your online store to ensure a smooth shopping experience for your customers, including payment gateway integration and inventory management.',
+    image: '/services/ecommerce.png',
+  },
+];
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <main className='overflow-x-hidden bg-zinc-100'>
+      <section className='p-2 md:p-6  mt-[4.5rem] lg:mt-0 '>
+        <MobileNav />
+        <div className='rounded-[3rem] relative shadow bg-gradient-to-br from-blue-200 to-violet-200 min-h-screen '>
+          <div className=' bg-[url("/rect.svg")] min-h-screen rounded-[3rem] bg-center bg-cover p-4'>
+            <motion.nav
+              variants={{
+                hidden: { opacity: 0, y: 75 },
+                visible: { opacity: 1, y: 0 },
+              }}
+              transition={{
+                duration: 0.5,
+                delay: 0.25,
+              }}
+              initial='hidden'
+              animate='visible'
+              className='hidden py-6 px-24 lg:flex items-center justify-between'
+            >
+              <h1 className={cn('text-4xl text-blue-950', calistago.className)}>
+                Precision Recalls
+              </h1>
+
+              <ul className='flex items-center gap-x-6'>
+                {NAV_ITEMS.map((item, index) => (
+                  <Link href={item.link} key={index}>
+                    <li className='bg-white/50 text-blue-950 font-medium text-sm px-3 py-1.5 border rounded-full'>
+                      {item.title}
+                    </li>
+                  </Link>
+                ))}
+              </ul>
+            </motion.nav>
+
+            <div className='lg:px-24 flex flex-col gap-y-16 lg:gap-y-0 lg:flex-row items-center lg:gap-x-16 justify-between'>
+              <div className=' max-w-[70rem] '>
+                <motion.h2
+                  variants={{
+                    hidden: { opacity: 0, y: 75 },
+                    visible: { opacity: 1, y: 0 },
+                  }}
+                  transition={{
+                    duration: 0.5,
+                    delay: 0.25,
+                  }}
+                  initial='hidden'
+                  animate='visible'
+                  className={cn(
+                    'text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-blue-950 lg:leading-[5rem] text-center lg:text-start mt-8 md:mt-16',
+                    calistago.className
+                  )}
+                >
+                  From data to deployment: we drive your success
+                </motion.h2>
+
+                <motion.p
+                  variants={{
+                    hidden: { opacity: 0, y: 75 },
+                    visible: { opacity: 1, y: 0 },
+                  }}
+                  transition={{
+                    duration: 0.5,
+                    delay: 0.25,
+                  }}
+                  initial='hidden'
+                  animate='visible'
+                  className='text-center lg:text-start lg:text-xl tracking-wider text-blue-950/80 mt-8'
+                >
+                  Precision Recalls delivers unparalleled services to elevate
+                  your business. We specialize in data science, web and app
+                  development, data analytics, digital marketing, software
+                  development, and e-commerce setup, ensuring comprehensive and
+                  top-quality support across all your needs.
+                </motion.p>
+
+                <motion.button
+                  variants={{
+                    hidden: { opacity: 0, y: 75 },
+                    visible: { opacity: 1, y: 0 },
+                  }}
+                  transition={{
+                    duration: 0.5,
+                    delay: 0.25,
+                  }}
+                  initial='hidden'
+                  animate='visible'
+                  className='gap-x-2 flex items-center mx-auto lg:mx-0 mt-12 text-blue-950  text-lg bg-white pl-1.5 pr-3 py-2 rounded-full'
+                >
+                  <ArrowRight className='size-8 bg-blue-200 rounded-full p-1.5' />{' '}
+                  Read More
+                </motion.button>
+              </div>
+              <Image
+                src={'/hero2.png'}
+                alt='skills'
+                width={500}
+                height={500}
+                className='lg:scale-90 xl:scale-100'
+              />
+            </div>
+          </div>
+          <motion.div
+            variants={{
+              hidden: { left: 0 },
+              visible: { left: '100%' },
+            }}
+            transition={{
+              duration: 0.5,
+              ease: 'easeIn',
+            }}
+            initial='hidden'
+            animate='visible'
+            className='absolute top-0 left-0 right-0 bottom-0 rounded-[3rem] bg-blue-950 z-[5]'
+          />
         </div>
-      </div>
+      </section>
 
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+      {/* ***************** SERVICES *********************** */}
 
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
+      <section className='p-2 md:p-6 mt-4'>
+        <div className='flex flex-col gap-y-8 xl:gap-y-0 xl:flex-row py-12 lg:px-10 xl:px-12  rounded-[3rem] w-full bg-gradient-to-b from-violet-400 to-blue-400 shadow-md'>
+          <h2
+            className={cn(
+              ' text-blue-950  text-center xl:text-start text-4xl  font-bold uppercase tracking-wider leading-[4rem]',
+              calistago.className
+            )}
+          >
+            Services We Provide
           </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+          <div className='grow grid w-full grid-cols-1 justify-items-center sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-12  '>
+            {SERVICES.map((service, index) => (
+              <TiltCard key={index} service={service} index={index} />
+            ))}
+          </div>
+        </div>
+      </section>
     </main>
   );
 }
