@@ -14,7 +14,7 @@ const calistago = Calistoga({
   subsets: ['latin'],
 });
 
-export const NAV_ITEMS = [
+const NAV_ITEMS = [
   {
     title: 'About Us',
     link: '/about-us',

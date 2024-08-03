@@ -6,9 +6,27 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { NAV_ITEMS } from '@/app/page';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
+
+const NAV_ITEMS = [
+  {
+    title: 'About Us',
+    link: '/about-us',
+  },
+  {
+    title: 'Services',
+    link: '#services',
+  },
+  {
+    title: 'Portfolio',
+    link: '#portfolio',
+  },
+  {
+    title: 'Contact Us',
+    link: '/contact-us',
+  },
+];
 
 const calistago = Calistoga({
   weight: ['400'],
