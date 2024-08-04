@@ -1,17 +1,19 @@
 'use client';
 
 import MobileNav from '@/components/MobileNav';
+import ParallaxTitle from '@/components/ParallaxTitle';
+import Portfolio from '@/components/Portfolio';
+import TiltCard from '@/components/TiltCard';
 import { cn } from '@/lib/utils';
+import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
-import { Calistoga } from 'next/font/google';
+import { Tenor_Sans, Lilita_One } from 'next/font/google';
 import Image from 'next/image';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
-import TiltCard from '@/components/TiltCard';
 
-const calistago = Calistoga({
+const righteous = Lilita_One({
   weight: ['400'],
-  subsets: ['latin'],
+  subsets: ['latin-ext'],
 });
 
 const NAV_ITEMS = [
@@ -74,11 +76,11 @@ const SERVICES = [
 
 export default function Home() {
   return (
-    <main className='overflow-x-hidden bg-zinc-100'>
+    <main className=' bg-zinc-100'>
       <section className='p-2 md:p-6  mt-[4.5rem] lg:mt-0 '>
         <MobileNav />
-        <div className='rounded-[3rem] relative shadow bg-gradient-to-br from-blue-200 to-violet-200 min-h-screen '>
-          <div className=' bg-[url("/rect.svg")] min-h-screen rounded-[3rem] bg-center bg-cover p-4'>
+        <div className='rounded-[3rem] relative shadow  bg-gradient-to-br from-blue-200 to-purple-400 min-h-screen '>
+          <div className=' bg-[url("/rect.svg")] bg-white/50 bg-blend-color  min-h-screen rounded-[3rem] bg-center bg-cover p-4'>
             <motion.nav
               variants={{
                 hidden: { opacity: 0, y: 75 },
@@ -92,7 +94,12 @@ export default function Home() {
               animate='visible'
               className='hidden py-6 px-24 lg:flex items-center justify-between'
             >
-              <h1 className={cn('text-4xl text-blue-950', calistago.className)}>
+              <h1
+                className={cn(
+                  'text-4xl   text-blue-950 uppercase tracking-wide',
+                  righteous.className
+                )}
+              >
                 Precision Recalls
               </h1>
 
@@ -121,8 +128,7 @@ export default function Home() {
                   initial='hidden'
                   animate='visible'
                   className={cn(
-                    'text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-blue-950 lg:leading-[5rem] text-center lg:text-start mt-8 md:mt-16',
-                    calistago.className
+                    'text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-blue-950  text-center lg:text-start mt-8 md:mt-16 font-semibold lg:!leading-[5.125rem]'
                   )}
                 >
                   From data to deployment: we drive your success
@@ -139,13 +145,13 @@ export default function Home() {
                   }}
                   initial='hidden'
                   animate='visible'
-                  className='text-center lg:text-start lg:text-xl tracking-wider text-blue-950/80 mt-8'
+                  className='text-center lg:text-start lg:text-xl tracking-wide mt-8'
                 >
-                  Precision Recalls delivers unparalleled services to elevate
-                  your business. We specialize in data science, web and app
-                  development, data analytics, digital marketing, software
-                  development, and e-commerce setup, ensuring comprehensive and
-                  top-quality support across all your needs.
+                  Precision Recalls offers exceptional services to elevate your
+                  business, specializing in AI/ML, web and app development, data
+                  analytics, digital marketing, software development, and
+                  e-commerce setup. We ensure comprehensive support across all
+                  your needs.
                 </motion.p>
 
                 <motion.button
@@ -193,11 +199,10 @@ export default function Home() {
       {/* ***************** SERVICES *********************** */}
 
       <section className='p-2 md:p-6 mt-4'>
-        <div className='flex flex-col gap-y-8 xl:gap-y-0 xl:flex-row py-12 lg:px-10 xl:px-12  rounded-[3rem] w-full bg-gradient-to-b from-violet-400 to-blue-400 shadow-md'>
+        <div className='flex flex-col gap-y-8 xl:gap-y-0 xl:flex-row py-12 lg:px-10 xl:px-12  rounded-[3rem] w-full bg-gradient-to-b from-violet-200 to-blue-300 shadow-md'>
           <h2
             className={cn(
-              ' text-blue-950  text-center xl:text-start text-4xl  font-bold uppercase tracking-wider leading-[4rem]',
-              calistago.className
+              ' text-blue-950  text-center xl:text-start text-4xl tracking-wider font-black uppercase  leading-[4rem]'
             )}
           >
             Services We Provide
@@ -209,6 +214,15 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* ***************** Projects *********************** */}
+
+      <section className='mt-16'>
+        <ParallaxTitle />
+        <Portfolio />
+      </section>
+
+      <section className='bg-red-500 p-36 h-screen'>helllooooooo</section>
     </main>
   );
 }
