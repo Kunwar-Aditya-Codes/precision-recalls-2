@@ -60,14 +60,14 @@ const Portfolio = () => {
       className='h-[600vh] relative bg-[url("/projects/project-bg.jpg")]'
       ref={ref}
     >
-      <div className='sticky top-0 flex  h-screen gap-4 items-center overflow-hidden'>
+      <div className='sticky top-0 flex h-screen gap-4 items-center overflow-hidden'>
         <motion.div style={{ x }} className='flex'>
           {PROJECTS.map((project, index) => (
             <div
-              className='h-screen w-screen pb-12 pt-20 lg:pb-b px-6 lg:pt-6 lg:mt-0  overflow-x-hidden'
+              className='h-screen w-screen pb-12 pt-20 lg:pb-6 px-6  lg:pt-6 lg:mt-0  overflow-x-hidden'
               key={index}
             >
-              <div className='flex flex-row w-fit h-full border rounded-[3rem] border-white/20'>
+              <div className='flex flex-row w-full h-full border rounded-[3rem] border-white/20'>
                 <Image
                   src={project.image}
                   alt={project.title}

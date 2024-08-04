@@ -1,5 +1,5 @@
 import { cn } from '@/lib/utils';
-import { Calistoga } from 'next/font/google';
+import { Lilita_One } from 'next/font/google';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -8,6 +8,11 @@ import {
 } from '@/components/ui/dropdown-menu';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
+
+const righteous = Lilita_One({
+  weight: ['400'],
+  subsets: ['latin-ext'],
+});
 
 const NAV_ITEMS = [
   {
@@ -28,16 +33,11 @@ const NAV_ITEMS = [
   },
 ];
 
-const calistago = Calistoga({
-  weight: ['400'],
-  subsets: ['latin'],
-});
-
 const MobileNav = () => {
   return (
     <header className='lg:hidden bg-white flex items-center px-4 left-0 right-0 h-[4rem] fixed z-[50] top-0 w-full'>
       <nav className='flex items-center justify-between w-full'>
-        <h1 className={cn('text-2xl text-blue-950', calistago.className)}>
+        <h1 className={cn('text-2xl text-blue-950', righteous.className)}>
           Precision Recalls
         </h1>
 

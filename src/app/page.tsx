@@ -3,13 +3,20 @@
 import MobileNav from '@/components/MobileNav';
 import ParallaxTitle from '@/components/ParallaxTitle';
 import Portfolio from '@/components/Portfolio';
+import Testimonials from '@/components/Testimonials';
 import TiltCard from '@/components/TiltCard';
 import { cn } from '@/lib/utils';
-import { motion } from 'framer-motion';
+import {
+  motion,
+  useMotionTemplate,
+  useMotionValue,
+  animate,
+} from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
-import { Tenor_Sans, Lilita_One } from 'next/font/google';
+import { Lilita_One } from 'next/font/google';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useEffect } from 'react';
 
 const righteous = Lilita_One({
   weight: ['400'],
@@ -74,7 +81,22 @@ const SERVICES = [
   },
 ];
 
+const COLORS = ['#13FFAA', '#1E67C6', '#CE84CF', '#DD335C'];
+
 export default function Home() {
+  const color = useMotionValue(COLORS[0]);
+  const backgroundImage = useMotionTemplate`radial-gradient(130% 130% at 50% 0% , #020617 50%, ${color})`;
+
+  useEffect(() => {
+    animate(color, COLORS, {
+      ease: 'easeInOut',
+      duration: 10,
+      repeat: Infinity,
+      repeatType: 'mirror',
+      
+    });
+  }, []);
+
   return (
     <main className=' bg-zinc-100'>
       <section className='p-2 md:p-6  mt-[4.5rem] lg:mt-0 '>
@@ -222,7 +244,19 @@ export default function Home() {
         <Portfolio />
       </section>
 
-      <section className='bg-red-500 p-36 h-screen'>helllooooooo</section>
+      <motion.section
+        style={{
+          backgroundImage,
+        }}
+        className='p-6 h-screen flex-col items-center justify-center'
+      >
+        <div className=' py-8 rounded-[3rem]  h-full flex flex-col justify-evenly'>
+          <h3 className='text-center text-white  w-fit mx-auto text-5xl font-bold tracking-tight'>
+            What our clients have to say...
+          </h3>
+          <Testimonials />
+        </div>
+      </motion.section>
     </main>
   );
 }
