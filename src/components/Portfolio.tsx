@@ -60,7 +60,7 @@ const Portfolio = () => {
       className='h-[600vh] relative bg-[url("/projects/project-bg.jpg")]'
       ref={ref}
     >
-      <div className='sticky top-0 flex h-screen gap-4 items-center overflow-hidden'>
+      <div className='sticky top-0 flex h-screen bg-black/50 gap-4 items-center overflow-hidden'>
         <motion.div style={{ x }} className='flex'>
           {PROJECTS.map((project, index) => (
             <div

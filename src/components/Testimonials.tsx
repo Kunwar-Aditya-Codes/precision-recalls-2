@@ -38,70 +38,36 @@ const TESTIMONIALS = [
 
 const Testimonials = () => {
   return (
-    <div className=''>
-      <div className='flex overflow-hidden md:[mask-image:linear-gradient(to_right,transparent_0%,black_25%,black_75%,transparent_100%)]'>
-        <motion.div
-          animate={{
-            translateX: '-50%',
-          }}
-          transition={{
-            duration: 40,
-            repeat: Infinity,
-            ease: 'linear',
-            repeatType: 'loop',
-          }}
-          className='flex items-start gap-x-14 py-12 pr-14'
-        >
-          {TESTIMONIALS.map((testimonial, index) => (
-            <div
-              key={index}
-              className='bg-white/20 border-2 border-white/30 text-white p-8 flex flex-col justify-between rounded-3xl min-h-[18rem] w-[20rem] overflow-x-hidden md:w-[25rem] shadow-2xl'
-            >
-              <p className=' italic flex flex-col gap-y-2'>
-                <Quote className='rotate-180 size-8 fill-white mr-4' />
-                <span className='text-balance text-lg'>
-                  {testimonial.description}
-                </span>
-              </p>
-              <div className='flex flex-col md:flex-row md:items-center justify-between mt-8 md:mt-0'>
-                <h4 className='text-xl font-bold text-zinc-200 tracking-wide'>
-                  {testimonial.username}
-                </h4>
-                <span className='flex mt-4 md:mt-0 w-fit itmes-center gap-x-2 bg-white text-black rounded-lg px-4 py-2'>
-                  <span>{testimonial.rating} / 5</span>
-                  <span>
-                    <Star className='size-5 text-amber-500 fill-amber-500' />
-                  </span>
-                </span>
-              </div>
+    <div className='flex overflow-hidden md:[mask-image:linear-gradient(to_right,transparent_0%,black_25%,black_75%,transparent_100%)]'>
+      <motion.div
+        animate={{
+          translateX: '-50%',
+        }}
+        transition={{
+          duration: 40,
+          repeat: Infinity,
+          ease: 'linear',
+          repeatType: 'loop',
+        }}
+        className='flex  gap-x-14 '
+      >
+        {[...TESTIMONIALS, ...TESTIMONIALS].map((testimonial, index) => (
+          <div
+            key={index}
+            className='bg-white/20 border-2 border-white/30 text-white p-8  rounded-3xl flex-none max-w-xs md:max-w-md h-full shadow-2xl '
+          >
+            <div className='italic flex flex-col gap-y-2 h-[80%]'>
+              <Quote className='rotate-180 size-8 fill-white' />
+              <span className='text-balance text-lg tracking-tight'>
+                {testimonial.description}
+              </span>
             </div>
-          ))}
-          {TESTIMONIALS.map((testimonial, index) => (
-            <div
-              key={index}
-              className='bg-white/20 border-2 border-white/30 text-white p-8 flex flex-col justify-between rounded-3xl min-h-[18rem] w-[15rem]  md:w-[25rem] shadow-2xl'
-            >
-              <p className=' italic flex flex-col gap-y-2'>
-                <Quote className='rotate-180 size-8 fill-white mr-4' />
-                <span className='text-balance text-lg'>
-                  {testimonial.description}
-                </span>
-              </p>
-              <div className='flex items-center justify-between '>
-                <h4 className='text-xl font-bold text-zinc-200 tracking-wide'>
-                  {testimonial.username}
-                </h4>
-                <span className='flex itmes-center gap-x-2 bg-white text-black rounded-lg px-4 py-2'>
-                  <span>{testimonial.rating} / 5</span>
-                  <span>
-                    <Star className='size-5 text-amber-500 fill-amber-500' />
-                  </span>
-                </span>
-              </div>
-            </div>
-          ))}
-        </motion.div>
-      </div>
+            <h4 className='text-xl font-bold text-zinc-200 tracking-wide mt-5'>
+              {testimonial.username}
+            </h4>
+          </div>
+        ))}
+      </motion.div>
     </div>
   );
 };

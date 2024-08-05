@@ -81,7 +81,7 @@ const SERVICES = [
   },
 ];
 
-const COLORS = ['#13FFAA', '#1E67C6', '#CE84CF', '#DD335C'];
+const COLORS = ['#13FFAA', '#b567ff', '#CE84CF', '#DD335C'];
 
 export default function Home() {
   const color = useMotionValue(COLORS[0]);
@@ -98,7 +98,7 @@ export default function Home() {
 
   return (
     <main className=' bg-zinc-100'>
-      <section className='p-2 md:p-6  mt-[4.5rem] lg:mt-0 '>
+      <section className='p-2 md:p-6  mt-[4.5rem] lg:mt-0 overflow-x-hidden'>
         <MobileNav />
         <div className='rounded-[3rem] relative shadow  bg-gradient-to-br from-blue-200 to-purple-400 min-h-screen '>
           <div className=' bg-[url("/rect.svg")] bg-white/50 bg-blend-color  min-h-screen rounded-[3rem] bg-center bg-cover p-4'>
@@ -219,7 +219,7 @@ export default function Home() {
 
       {/* ***************** SERVICES *********************** */}
 
-      <section className='p-2 md:p-6 mt-4'>
+      <section id='services' className='p-2 md:p-6 mt-4  overflow-x-hidden'>
         <div className='flex flex-col gap-y-8 xl:gap-y-0 xl:flex-row py-12 lg:px-10 xl:px-12  rounded-[3rem] w-full bg-gradient-to-b from-violet-200 to-blue-300 shadow-md'>
           <h2
             className={cn(
@@ -238,18 +238,20 @@ export default function Home() {
 
       {/* ***************** Projects *********************** */}
 
-      <section className='mt-16'>
+      <section id='portfolio' className='mt-16'>
         <ParallaxTitle />
         <Portfolio />
       </section>
+
+      {/* ***************** Testimonials *********************** */}
 
       <motion.section
         style={{
           backgroundImage,
         }}
-        className=' h-[calc(100vh-4rem)] flex-col items-center justify-center'
+        className=' h-[calc(100vh-4rem)]'
       >
-        <div className='py-8 rounded-[3rem]  h-full flex flex-col justify-center gap-y-8'>
+        <div className='py-8 rounded-[3rem] w-full h-full flex flex-col justify-center gap-y-12 '>
           <h3 className='px-6 text-center text-white  w-fit mx-auto text-5xl font-bold tracking-tight'>
             What our clients have to say...
           </h3>
