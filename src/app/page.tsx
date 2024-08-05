@@ -85,7 +85,7 @@ const COLORS = ['#13FFAA', '#1E67C6', '#CE84CF', '#DD335C'];
 
 export default function Home() {
   const color = useMotionValue(COLORS[0]);
-  const backgroundImage = useMotionTemplate`radial-gradient(130% 130% at 50% 0% , #020617 50%, ${color})`;
+  const backgroundImage = useMotionTemplate`radial-gradient(160% 160% at 50% 0% , #020617 50%, ${color})`;
 
   useEffect(() => {
     animate(color, COLORS, {
@@ -93,7 +93,6 @@ export default function Home() {
       duration: 10,
       repeat: Infinity,
       repeatType: 'mirror',
-      
     });
   }, []);
 
@@ -248,10 +247,10 @@ export default function Home() {
         style={{
           backgroundImage,
         }}
-        className='p-6 h-screen flex-col items-center justify-center'
+        className=' h-[calc(100vh-4rem)] flex-col items-center justify-center'
       >
-        <div className=' py-8 rounded-[3rem]  h-full flex flex-col justify-evenly'>
-          <h3 className='text-center text-white  w-fit mx-auto text-5xl font-bold tracking-tight'>
+        <div className='py-8 rounded-[3rem]  h-full flex flex-col justify-center gap-y-8'>
+          <h3 className='px-6 text-center text-white  w-fit mx-auto text-5xl font-bold tracking-tight'>
             What our clients have to say...
           </h3>
           <Testimonials />
