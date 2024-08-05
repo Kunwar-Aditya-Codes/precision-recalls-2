@@ -54,7 +54,7 @@ const Testimonials = () => {
         {[...TESTIMONIALS, ...TESTIMONIALS].map((testimonial, index) => (
           <div
             key={index}
-            className='bg-white/20 border-2 border-white/30 text-white p-8  rounded-3xl flex-none max-w-xs md:max-w-md h-full shadow-2xl '
+            className='bg-white/10 border-2 border-white/30 text-white p-8  rounded-3xl flex-none max-w-xs md:max-w-md h-full shadow-2xl '
           >
             <div className='italic flex flex-col gap-y-2 h-[80%]'>
               <Quote className='rotate-180 size-8 fill-white' />

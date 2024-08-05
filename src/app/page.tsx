@@ -1,10 +1,12 @@
 'use client';
 
+import AboutUs from '@/components/AboutUs';
 import MobileNav from '@/components/MobileNav';
 import ParallaxTitle from '@/components/ParallaxTitle';
 import Portfolio from '@/components/Portfolio';
 import Testimonials from '@/components/Testimonials';
 import TiltCard from '@/components/TiltCard';
+import { COLORS, NAV_ITEMS, SERVICES } from '@/lib/data-constants';
 import { cn } from '@/lib/utils';
 import {
   motion,
@@ -23,69 +25,9 @@ const righteous = Lilita_One({
   subsets: ['latin-ext'],
 });
 
-const NAV_ITEMS = [
-  {
-    title: 'About Us',
-    link: '/about-us',
-  },
-  {
-    title: 'Services',
-    link: '#services',
-  },
-  {
-    title: 'Portfolio',
-    link: '#portfolio',
-  },
-  {
-    title: 'Contact Us',
-    link: '/contact-us',
-  },
-];
-
-const SERVICES = [
-  {
-    title: 'Web Development',
-    description:
-      'Building responsive and high-quality websites tailored to your business needs, ensuring seamless user experiences across all devices.',
-    image: '/services/web.png',
-  },
-  {
-    title: 'App Development',
-    description:
-      'Creating intuitive and engaging mobile applications for iOS and Android platforms to enhance your business reach and user engagement.',
-    image: '/services/app.png',
-  },
-  {
-    title: 'Data Analytics',
-    description:
-      'Leveraging data to provide actionable insights and drive informed decision-making, helping you unlock the full potential of your data.',
-    image: '/services/data.png',
-  },
-  {
-    title: 'Digital Marketing',
-    description:
-      'Developing comprehensive digital marketing strategies to boost your online presence, increase traffic, and drive conversions through SEO, PPC, and social media marketing.',
-    image: '/services/digital.png',
-  },
-  {
-    title: 'Software Development',
-    description:
-      'Designing and developing custom software solutions to streamline your business processes, improve efficiency, and meet your specific requirements.',
-    image: '/services/software.png',
-  },
-  {
-    title: 'E-commerce Setup',
-    description:
-      'Setting up and optimizing your online store to ensure a smooth shopping experience for your customers, including payment gateway integration and inventory management.',
-    image: '/services/ecommerce.png',
-  },
-];
-
-const COLORS = ['#13FFAA', '#b567ff', '#CE84CF', '#DD335C'];
-
 export default function Home() {
   const color = useMotionValue(COLORS[0]);
-  const backgroundImage = useMotionTemplate`radial-gradient(160% 160% at 50% 0% , #020617 50%, ${color})`;
+  const backgroundImage = useMotionTemplate`radial-gradient(160% 160% at 50% 0% , #020410 50%, ${color})`;
 
   useEffect(() => {
     animate(color, COLORS, {
@@ -243,6 +185,18 @@ export default function Home() {
         <Portfolio />
       </section>
 
+      {/* ***************** About *********************** */}
+
+      <section
+        id={'about'}
+        className='overflow-x-hidden pt-16 px-4 md:px-10 bg-[#020410]'
+      >
+        <h3 className=' text-center text-zinc-300 w-fit mx-auto text-5xl font-bold tracking-tight'>
+          About Us
+        </h3>
+        <AboutUs />
+      </section>
+
       {/* ***************** Testimonials *********************** */}
 
       <motion.section
@@ -251,8 +205,8 @@ export default function Home() {
         }}
         className=' h-[calc(100vh-4rem)]'
       >
-        <div className='py-8 rounded-[3rem] w-full h-full flex flex-col justify-center gap-y-12 '>
-          <h3 className='px-6 text-center text-white  w-fit mx-auto text-5xl font-bold tracking-tight'>
+        <div className='py-8 rounded-[3rem] w-full h-full flex flex-col justify-center gap-y-28 '>
+          <h3 className='px-6 text-center text-zinc-300  w-fit mx-auto text-5xl font-bold tracking-tight'>
             What our clients have to say...
           </h3>
           <Testimonials />

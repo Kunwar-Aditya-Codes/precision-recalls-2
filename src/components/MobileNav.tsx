@@ -8,30 +8,12 @@ import {
 } from '@/components/ui/dropdown-menu';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
+import { NAV_ITEMS } from '@/lib/data-constants';
 
 const righteous = Lilita_One({
   weight: ['400'],
   subsets: ['latin-ext'],
 });
-
-const NAV_ITEMS = [
-  {
-    title: 'About Us',
-    link: '/about-us',
-  },
-  {
-    title: 'Services',
-    link: '#services',
-  },
-  {
-    title: 'Portfolio',
-    link: '#portfolio',
-  },
-  {
-    title: 'Contact Us',
-    link: '/contact-us',
-  },
-];
 
 const MobileNav = () => {
   return (
