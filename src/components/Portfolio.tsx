@@ -1,127 +1,76 @@
 'use client';
 
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { CheckCheck } from 'lucide-react';
-import Image from 'next/image';
-import { useRef } from 'react';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from '@/components/ui/carousel';
+import { PROJECTS } from '@/lib/data-constants';
+import { MotionValue, useTransform, motion } from 'framer-motion';
 
-const PROJECTS = [
-  {
-    title: 'Face Clustering',
-    image: '/projects/face-cluster.jpg',
-    description: [
-      'Detects and clusters faces from CCTV footage using advanced computer vision techniques.',
-      'Provides real-time headcount metrics and threat identification for enhanced security.',
-      'Integrates with existing systems for scalable and adaptable monitoring solutions.',
-    ],
-    client: 'Attain Ai',
-  },
-  {
-    title: 'Activity Classification for Sports Analytics',
-    image: '/projects/sports-analysis.jpg',
-    description: [
-      'Classifies physical activities by analyzing body posture coordinates from videos.',
-      'Facilitates remote fitness training by providing detailed activity analysis.',
-      'Seamlessly integrates into sports and fitness platforms to enhance user experience.',
-    ],
-    client: 'Timeout',
-  },
-  {
-    title: 'Sales Forecasting Time Series Model',
-    image: '/projects/market-analysis.jpg',
-    description: [
-      'Develops a time series model for accurate sales forecasting and inventory estimation.',
-      'Optimizes financial planning and resource allocation for FMCG companies and other industries.',
-      'Applicable to various sectors, improving operational efficiency and inventory management.',
-    ],
-    client: '',
-  },
-  {
-    title: 'Personalized E-commerce Recommendation',
-    image: '/projects/ecommerce.jpg',
-    description: [
-      'Led the creation of a personalized recommendation engine for e-commerce.',
-      'Utilized advanced AI/ML techniques to tailor product suggestions to user preferences.',
-      'Increases user engagement and sales through dynamic recommendations.',
-    ],
-    client: '',
-  },
-];
-
-const Portfolio = () => {
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-  });
-  const x = useTransform(scrollYProgress, [0, 1], ['1%', '-76%']);
-
+const Portfolio = ({
+  scrollYProgress,
+}: {
+  scrollYProgress: MotionValue<number>;
+}) => {
+  const scale = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
+  const rotate = useTransform(scrollYProgress, [0, 1], [-5, 0]);
   return (
-    <div
-      className='h-[600vh] relative bg-[url("/projects/project-bg.jpg")]'
-      ref={ref}
-    >
-      <div className='sticky top-0 flex h-screen bg-black/50 gap-4 items-center overflow-hidden'>
-        <motion.div style={{ x }} className='flex'>
+    <motion.div style={{ scale }} className=' bg-black h-screen  relative '>
+      <Carousel
+        opts={{
+          align: 'start',
+        }}
+        className='relative max-w-[85rem] mx-auto px-4 lg:px-12 xl:px-0 pt-12 pb-20'
+      >
+        <CarouselContent className='-mx-4  lg:-mx-1'>
           {PROJECTS.map((project, index) => (
-            <div
-              className='h-screen w-screen pb-12 pt-20 lg:pb-6 px-6  lg:pt-6 lg:mt-0  overflow-x-hidden'
+            <CarouselItem
               key={index}
+              className='lg:basis-1/2 px-4 lg:px-1 rounded-2xl '
             >
-              <div className='flex flex-row w-full h-full border rounded-[3rem] border-white/20'>
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  width={500}
-                  height={500}
-                  className='object-cover hidden lg:block lg:rounded-l-[3rem] lg:flex-[0.5]'
-                />
-
-                <div className='h-full  lg:flex-[0.5]  flex flex-col bg-white/10 backdrop-blur-lg text-white rounded-[3rem] lg:rounded-none lg:rounded-r-[3rem] p-8'>
-                  <div>
-                    <div className='bg-gradient-to-br from-cyan-600 to-fuchsia-500 w-fit rounded-full p-0.5'>
-                      <h2 className='bg-zinc-950  text-white w-fit py-1.5 px-3  uppercase tracking-widest font-medium text-xs rounded-full'>
-                        Project
-                      </h2>
-                    </div>
-                    <h1 className='text-xl lg:text-3xl tracking-wide font-semibold  w-fit max-w-[35rem] !leading-[3rem]'>
-                      {project.title}
-                    </h1>
-                  </div>
-                  {project.client.length > 0 && (
-                    <div className='mt-4'>
-                      <div className='bg-gradient-to-br from-cyan-600 to-fuchsia-500 w-fit mb-4 rounded-full p-0.5'>
-                        <h2 className='bg-zinc-950  text-white w-fit py-1.5 px-3  uppercase tracking-widest font-medium text-xs rounded-full'>
-                          Client
-                        </h2>
-                      </div>
-                      <p className='text-xl font-medium'>{project.client}</p>
-                    </div>
-                  )}
-                  <div className='flex flex-col mt-8 max-w-[35rem]'>
-                    <div className='bg-gradient-to-br from-cyan-600 to-fuchsia-500 w-fit mb-4 rounded-full p-0.5'>
-                      <h2 className='bg-zinc-950 text-xs rounded-full text-white w-fit py-1.5 px-3  uppercase tracking-widest font-medium   '>
-                        Project Info.
-                      </h2>
-                    </div>
-                    {project.description.map((desc, index) => (
-                      <p
-                        key={index}
-                        className='flex text-zinc-100 mb-1.5 items-start gap-x-4'
-                      >
-                        <span>
-                          <CheckCheck className='size-4 mt-1' />
-                        </span>
-                        <span className=''>{desc}</span>
-                      </p>
-                    ))}
-                  </div>
+              <div
+                style={{
+                  backgroundImage: `url(${project.image})`,
+                }}
+                className='rounded-2xl bg-black/90 border border-zinc-800 bg-blend-color bg-cover bg-center backdrop-blur-md aspect-auto p-6 h-[38rem] flex flex-col gap-y-10'
+              >
+                <div className='flex flex-col gap-y-3 '>
+                  <label className='bg-white w-fit text-sm tracking-wider px-3 py-1 text-black rounded-full'>
+                    Title
+                  </label>
+                  <h1 className='text-2xl md:text-3xl font-bold text-white'>
+                    {project.title}
+                  </h1>
                 </div>
+                <div className='flex flex-col gap-y-3 '>
+                  <label className='bg-white w-fit text-sm tracking-wider px-3 py-1 text-black rounded-full'>
+                    Description
+                  </label>
+                  <p className='text-zinc-400 md:text-lg  text-balance '>
+                    {project.description}
+                  </p>
+                </div>
+                {project.client.length > 0 && (
+                  <div className='flex flex-col gap-y-3 '>
+                    <label className='bg-white w-fit text-sm tracking-wider px-3 py-1 text-black rounded-full'>
+                      Client
+                    </label>
+                    <p className='text-white text-lg'>{project.client}</p>
+                  </div>
+                )}
               </div>
-            </div>
+            </CarouselItem>
           ))}
-        </motion.div>
-      </div>
-    </div>
+        </CarouselContent>
+        <div className=' bg-white bottom-9 right-16 absolute'>
+          <CarouselNext className='' />
+          <CarouselPrevious className='' />
+        </div>
+      </Carousel>
+    </motion.div>
   );
 };
 export default Portfolio;

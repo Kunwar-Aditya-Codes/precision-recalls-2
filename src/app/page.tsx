@@ -13,12 +13,13 @@ import {
   useMotionTemplate,
   useMotionValue,
   animate,
+  useScroll,
 } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { Lilita_One } from 'next/font/google';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 
 const righteous = Lilita_One({
   weight: ['400'],
@@ -26,6 +27,12 @@ const righteous = Lilita_One({
 });
 
 export default function Home() {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ['start start', 'end end'],
+  });
+
   const color = useMotionValue(COLORS[0]);
   const backgroundImage = useMotionTemplate`radial-gradient(160% 160% at 50% 0% , #020410 50%, ${color})`;
 
@@ -40,10 +47,10 @@ export default function Home() {
 
   return (
     <main className=' bg-zinc-100'>
-      <section className='p-2 md:p-6  mt-[4.5rem] lg:mt-0 overflow-x-hidden'>
+      <section className=' md:p-6  mt-[4.5rem] lg:mt-0 overflow-x-hidden'>
         <MobileNav />
-        <div className='rounded-[3rem] relative shadow  bg-gradient-to-br from-blue-200 to-purple-400 min-h-screen '>
-          <div className=' bg-[url("/rect.svg")] bg-white/50 bg-blend-color  min-h-screen rounded-[3rem] bg-center bg-cover p-4'>
+        <div className='md:rounded-[3rem] relative shadow  bg-gradient-to-br from-blue-200 to-purple-400 min-h-screen '>
+          <div className=' bg-[url("/rect.svg")] bg-white/50 bg-blend-color  min-h-screen md:rounded-[3rem] bg-center bg-cover p-4'>
             <motion.nav
               variants={{
                 hidden: { opacity: 0, y: 75 },
@@ -154,15 +161,15 @@ export default function Home() {
             }}
             initial='hidden'
             animate='visible'
-            className='absolute top-0 left-0 right-0 bottom-0 rounded-[3rem] bg-blue-950 z-[5]'
+            className='absolute top-0 left-0 right-0 bottom-0 md:rounded-[3rem] bg-blue-950 z-[5]'
           />
         </div>
       </section>
 
       {/* ***************** SERVICES *********************** */}
 
-      <section id='services' className='p-2 md:p-6 mt-4  overflow-x-hidden'>
-        <div className='flex flex-col gap-y-8 xl:gap-y-0 xl:flex-row py-12 lg:px-10 xl:px-12  rounded-[3rem] w-full bg-gradient-to-b from-violet-200 to-blue-300 shadow-md'>
+      <section id='services' className=' md:p-6 mt-4  overflow-x-hidden'>
+        <div className='flex flex-col gap-y-8 xl:gap-y-0 xl:flex-row py-12 lg:px-10 xl:px-12  md:rounded-[3rem] w-full bg-gradient-to-b from-violet-200 to-blue-300 shadow-md'>
           <h2
             className={cn(
               ' text-blue-950  text-center xl:text-start text-4xl tracking-wider font-black uppercase  leading-[4rem]'
@@ -180,16 +187,16 @@ export default function Home() {
 
       {/* ***************** Projects *********************** */}
 
-      <section id='portfolio' className='mt-16'>
-        <ParallaxTitle />
-        <Portfolio />
+      <section id='portfolio' ref={ref} className=' h-[200vh] relative  '>
+        <ParallaxTitle scrollYProgress={scrollYProgress} />
+        <Portfolio scrollYProgress={scrollYProgress} />
       </section>
 
       {/* ***************** About *********************** */}
 
       <section
         id={'about'}
-        className='overflow-x-hidden pt-16 px-4 md:px-10 bg-[#020410]'
+        className='overflow-x-hidden pt-16 px-4 md:px-10 bg-gradient-to-b from-black to-[#020410]'
       >
         <h3 className=' text-center text-zinc-300 w-fit mx-auto text-5xl font-bold tracking-tight'>
           About Us

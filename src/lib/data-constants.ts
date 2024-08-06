@@ -17,6 +17,49 @@ export const NAV_ITEMS = [
   },
 ];
 
+export const PROJECTS = [
+  {
+    title: 'Face Clustering',
+    image: '/projects/face-cluster.jpg',
+    description: [
+      'Detects and clusters faces from CCTV footage using advanced computer vision techniques.',
+      'Provides real-time headcount metrics and threat identification for enhanced security.',
+      'Integrates with existing systems for scalable and adaptable monitoring solutions.',
+    ],
+    client: 'Attain Ai',
+  },
+  {
+    title: 'Activity Classification for Sports Analytics',
+    image: '/projects/sports-analysis.jpg',
+    description: [
+      'Classifies physical activities by analyzing body posture coordinates from videos.',
+      'Facilitates remote fitness training by providing detailed activity analysis.',
+      'Seamlessly integrates into sports and fitness platforms to enhance user experience.',
+    ],
+    client: 'Timeout',
+  },
+  {
+    title: 'Sales Forecasting Time Series Model',
+    image: '/projects/market-analysis.jpg',
+    description: [
+      'Develops a time series model for accurate sales forecasting and inventory estimation.',
+      'Optimizes financial planning and resource allocation for FMCG companies and other industries.',
+      'Applicable to various sectors, improving operational efficiency and inventory management.',
+    ],
+    client: '',
+  },
+  {
+    title: 'Personalized E-commerce Recommendation',
+    image: '/projects/ecommerce.jpg',
+    description: [
+      'Led the creation of a personalized recommendation engine for e-commerce.',
+      'Utilized advanced AI/ML techniques to tailor product suggestions to user preferences.',
+      'Increases user engagement and sales through dynamic recommendations.',
+    ],
+    client: '',
+  },
+];
+
 export const SERVICES = [
   {
     title: 'Web Development',
@@ -31,7 +74,7 @@ export const SERVICES = [
     image: '/services/app.png',
   },
   {
-    title: 'Data Analytics',
+    title: 'AI/ML',
     description:
       'Leveraging data to provide actionable insights and drive informed decision-making, helping you unlock the full potential of your data.',
     image: '/services/data.png',

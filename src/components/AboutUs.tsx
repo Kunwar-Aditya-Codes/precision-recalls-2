@@ -1,8 +1,5 @@
 'use client';
 
-import { useState } from 'react';
-import { ABOUT } from '@/lib/data-constants';
-import { motion } from 'framer-motion';
 import {
   Dialog,
   DialogContent,
@@ -11,14 +8,15 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog';
-import Image from 'next/image';
-import { Check, CheckCircle } from 'lucide-react';
+import { ABOUT } from '@/lib/data-constants';
+import { motion } from 'framer-motion';
+import { useState } from 'react';
 
 const AboutUs = () => {
   const [selected, setSelected] = useState<number | null>(null);
 
   return (
-    <div className='mt-12 text-white rounded-[3rem] py-8 mx-auto lg:px-24 gap-8 justify-items-center grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3'>
+    <div className='mt-12 text-white rounded-[3rem] py-8 mx-auto lg:px-24 md:gap-8 justify-items-center grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3'>
       {ABOUT.map((item, index) => (
         <Dialog key={index}>
           <DialogTrigger className='w-full max-w-sm h-[20rem] flex justify-center'>
@@ -36,9 +34,9 @@ const AboutUs = () => {
                 backgroundImage: `url(/section/about-${index + 1}.jpg)`,
               }}
               onClick={() => setSelected(index)}
-              className={`flex items-center justify-center p-6 rounded-2xl w-full h-full bg-cover bg-center bg-black/85 bg-blend-color`}
+              className={`flex items-center justify-center p-6 rounded-2xl size-[15rem] md:size-[18rem] bg-cover bg-center bg-black/85 bg-blend-color`}
             >
-              <h2 className='text-3xl font-bold tracking-wide text-center'>
+              <h2 className='text-2xl md:text-3xl font-bold tracking-wide text-center'>
                 {item.title}
               </h2>
             </motion.div>
