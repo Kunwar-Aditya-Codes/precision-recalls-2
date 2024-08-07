@@ -10,20 +10,23 @@ import {
 import { PROJECTS } from '@/lib/data-constants';
 import { MotionValue, useTransform, motion } from 'framer-motion';
 
-const Portfolio = ({
-  scrollYProgress,
-}: {
-  scrollYProgress: MotionValue<number>;
-}) => {
-  const scale = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
-  const rotate = useTransform(scrollYProgress, [0, 1], [-5, 0]);
+// {
+//   scrollYProgress,
+// }: {
+//   scrollYProgress: MotionValue<number>;
+// }
+
+const Portfolio = () => {
+  // const scale = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
+  // const rotate = useTransform(scrollYProgress, [0, 1], [-5, 0]);
   return (
-    <motion.div style={{ scale }} className=' bg-black h-screen  relative '>
+    // style={{ scale }}
+    <motion.div className='relative mt-6'>
       <Carousel
         opts={{
           align: 'start',
         }}
-        className='relative max-w-[85rem] mx-auto px-4 lg:px-12 xl:px-0 pt-12 pb-20'
+        className='relative max-w-[85rem] mx-auto px-4 lg:px-12 xl:px-0  pb-20'
       >
         <CarouselContent className='-mx-4  lg:-mx-1'>
           {PROJECTS.map((project, index) => (
@@ -35,7 +38,7 @@ const Portfolio = ({
                 style={{
                   backgroundImage: `url(${project.image})`,
                 }}
-                className='rounded-2xl bg-black/90 border border-zinc-800 bg-blend-color bg-cover bg-center backdrop-blur-md aspect-auto p-6 h-[38rem] flex flex-col gap-y-10'
+                className='rounded-2xl bg-black/95 border border-zinc-800 bg-blend-color bg-cover bg-center backdrop-blur-md aspect-auto p-6 h-[38rem] flex flex-col gap-y-10'
               >
                 <div className='flex flex-col gap-y-3 '>
                   <label className='bg-white w-fit text-sm tracking-wider px-3 py-1 text-black rounded-full'>

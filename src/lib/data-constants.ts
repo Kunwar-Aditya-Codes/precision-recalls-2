@@ -13,7 +13,7 @@ export const NAV_ITEMS = [
   },
   {
     title: 'Contact Us',
-    link: '/contact-us',
+    link: '#contact-us',
   },
 ];
 

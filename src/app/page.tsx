@@ -14,12 +14,13 @@ import {
   useMotionValue,
   animate,
   useScroll,
+  useTransform,
 } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Mail, Phone } from 'lucide-react';
 import { Lilita_One } from 'next/font/google';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const righteous = Lilita_One({
   weight: ['400'],
@@ -27,11 +28,13 @@ const righteous = Lilita_One({
 });
 
 export default function Home() {
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ['start start', 'end end'],
-  });
+  // const ref = useRef(null);
+  // const { scrollYProgress } = useScroll({
+  //   target: ref,
+  //   offset: ['start end', 'end end'],
+  // });
+  // const opacity = useTransform(scrollYProgress, [0, 0.3, 1], [0, 1, 1]);
+  // const x = useTransform(scrollYProgress, [0, 0.4, 1], ['-100%', '-5%', '0%']);
 
   const color = useMotionValue(COLORS[0]);
   const backgroundImage = useMotionTemplate`radial-gradient(160% 160% at 50% 0% , #020410 50%, ${color})`;
@@ -46,9 +49,12 @@ export default function Home() {
   }, []);
 
   return (
-    <main className=' bg-zinc-100'>
+    <main className=' bg-slate-50 '>
+      {/* ***************** HERO *********************** */}
+
       <section className=' md:p-6  mt-[4.5rem] lg:mt-0 overflow-x-hidden'>
         <MobileNav />
+
         <div className='md:rounded-[3rem] relative shadow  bg-gradient-to-br from-blue-200 to-purple-400 min-h-screen '>
           <div className=' bg-[url("/rect.svg")] bg-white/50 bg-blend-color  min-h-screen md:rounded-[3rem] bg-center bg-cover p-4'>
             <motion.nav
@@ -168,11 +174,12 @@ export default function Home() {
 
       {/* ***************** SERVICES *********************** */}
 
-      <section id='services' className=' md:p-6 mt-4  overflow-x-hidden'>
-        <div className='flex flex-col gap-y-8 xl:gap-y-0 xl:flex-row py-12 lg:px-10 xl:px-12  md:rounded-[3rem] w-full bg-gradient-to-b from-violet-200 to-blue-300 shadow-md'>
+      <section id='services' className=' md:p-6 mt-4 overflow-x-hidden'>
+        {/*md:rounded-[3rem] bg-gradient-to-b from-violet-200 to-blue-300 shadow-md */}
+        <div className='flex flex-col gap-y-8 xl:gap-y-0 xl:flex-row py-12 lg:px-10 xl:px-12 md:rounded-[3rem] bg-gradient-to-r from-blue-200 to-blue-100  w-full '>
           <h2
             className={cn(
-              ' text-blue-950  text-center xl:text-start text-4xl tracking-wider font-black uppercase  leading-[4rem]'
+              ' text-blue-950 text-center text-3xl lg:text-4xl xl:text-start xl:text-5xl tracking-wide font-black uppercase  leading-[4rem]'
             )}
           >
             Services We Provide
@@ -185,26 +192,34 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ***************** Projects *********************** */}
+      {/* ***************** PROJECTS *********************** */}
 
-      <section id='portfolio' ref={ref} className=' h-[200vh] relative  '>
-        <ParallaxTitle scrollYProgress={scrollYProgress} />
-        <Portfolio scrollYProgress={scrollYProgress} />
+      <section id='portfolio' className='relative md:p-6 overflow-hidden'>
+        {/* <ParallaxTitle scrollYProgress={scrollYProgress} /> */}
+        {/* bg-gradient-to-r from-[#0c0a1c] to-[#020410] */}
+        <motion.div className='md:rounded-[3rem] bg-gradient-to-br to-[#0c0a1c] from-[#020410]'>
+          <div className='md:rounded-[3rem] bg-[url("/projects/projectbg.png")] bg-black/50 bg-blend-color bg-center bg-cover'>
+            <h2 className='px-16 text-center py-8 mx-auto md:mx-0 md:text-start text-transparent bg-clip-text text-4xl lg:text-5xl xl:text-6xl font-bold tracking-wide w-fit bg-gradient-to-br from-sky-500 to-fuchsia-400'>
+              Featured Project
+            </h2>
+            <Portfolio />
+          </div>
+        </motion.div>
       </section>
 
-      {/* ***************** About *********************** */}
+      {/* ***************** ABOUT *********************** */}
 
       <section
         id={'about'}
-        className='overflow-x-hidden pt-16 px-4 md:px-10 bg-gradient-to-b from-black to-[#020410]'
+        className='overflow-x-hidden min-h-screen flex flex-col pb-28'
       >
-        <h3 className=' text-center text-zinc-300 w-fit mx-auto text-5xl font-bold tracking-tight'>
-          About Us
-        </h3>
+        <h2 className='text-center mx-auto text-blue-950 text-4xl lg:text-5xl xl:text-6xl font-bold w-fit  uppercase mt-12 mb-8'>
+          About
+        </h2>
         <AboutUs />
       </section>
 
-      {/* ***************** Testimonials *********************** */}
+      {/* ***************** TESTIMONIALS *********************** */}
 
       <motion.section
         style={{
@@ -219,6 +234,61 @@ export default function Home() {
           <Testimonials />
         </div>
       </motion.section>
+
+      {/* ***************** CONTACT *********************** */}
+      {/* TODO: email js */}
+      <section id={'contact-us'} className=' md:p-6 '>
+        <div className='flex flex-col md:flex-row justify-around bg-gradient-to-b from-violet-200 to-blue-300 text-black px-8 py-12 md:rounded-[3rem] lg:px-32 xl:px-36'>
+          <div className=' w-full flex flex-col justify-center gap-y-4 md:gap-y-16  md:flex-[0.6]'>
+            <h3 className='text-3xl text-zinc-800 lg:text-5xl xl:text-6xl font-bold tracking-wide  text-center md:text-start'>
+              Contact Us
+            </h3>
+            <div className='flex flex-col items-center font-medium md:items-start gap-y-2 text-xl '>
+              <div className='flex items-center gap-x-2'>
+                <span>
+                  <Mail className='size-5' />
+                </span>
+                <span>test@email.com</span>
+              </div>
+              <div className='flex items-center gap-x-2'>
+                <span>
+                  <Phone className='size-5' />
+                </span>
+                <span>+91 123123123123</span>
+              </div>
+            </div>
+          </div>
+          <div className='md:flex-[0.5] mt-16'>
+            <form className='flex flex-col gap-y-6 w-full border p-4 rounded-md border-white'>
+              <input
+                type='text'
+                placeholder='Your name'
+                className='p-2 rounded-md bg-white/30 placeholder:text-zinc-600 focus-visible:outline-none border border-white/15'
+              />
+              <input
+                placeholder='Email'
+                type='text'
+                className='p-2 rounded-md bg-white/30 placeholder:text-zinc-600 focus-visible:outline-none border border-white/15'
+              />
+              <input
+                type='number'
+                min={10}
+                max={10}
+                placeholder='Phone number'
+                className='p-2 rounded-md bg-white/30 placeholder:text-zinc-600 focus-visible:outline-none border border-white/15'
+              />
+              <textarea
+                placeholder='Type your message here...'
+                rows={7}
+                className='p-2 rounded-md bg-white/30 placeholder:text-zinc-600 focus-visible:outline-none border border-white/15'
+              />
+              <button className='bg-white p-2 rounded-md text-black font-medium uppercase tracking-wide'>
+                Submit form
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
     </main>
   );
 }
