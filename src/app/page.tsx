@@ -2,25 +2,23 @@
 
 import AboutUs from '@/components/AboutUs';
 import MobileNav from '@/components/MobileNav';
-import ParallaxTitle from '@/components/ParallaxTitle';
 import Portfolio from '@/components/Portfolio';
 import Testimonials from '@/components/Testimonials';
 import TiltCard from '@/components/TiltCard';
 import { COLORS, NAV_ITEMS, SERVICES } from '@/lib/data-constants';
 import { cn } from '@/lib/utils';
 import {
+  animate,
   motion,
   useMotionTemplate,
   useMotionValue,
-  animate,
-  useScroll,
-  useTransform,
 } from 'framer-motion';
 import { ArrowRight, Mail, Phone } from 'lucide-react';
 import { Lilita_One } from 'next/font/google';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useEffect, useRef, useState } from 'react';
+import { FormEvent, useEffect, useRef } from 'react';
+import emailjs from '@emailjs/browser';
 
 const righteous = Lilita_One({
   weight: ['400'],
@@ -28,6 +26,7 @@ const righteous = Lilita_One({
 });
 
 export default function Home() {
+  const form = useRef<HTMLFormElement | null>(null);
   // const ref = useRef(null);
   // const { scrollYProgress } = useScroll({
   //   target: ref,
@@ -47,6 +46,26 @@ export default function Home() {
       repeatType: 'mirror',
     });
   }, []);
+
+  const sendEmail = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    if (form.current)
+      emailjs
+        .sendForm('service_pjxajqa', 'template_zuhpe0o', form.current, {
+          publicKey: 'FWs2iXRB5REQskaqh',
+        })
+        .then(
+          () => {
+            window.alert('SUCCESS');
+            console.log('SUCCESS!');
+          },
+          (error) => {
+            window.alert('FAILED');
+            console.log('FAILED...', error.text);
+          }
+        );
+  };
 
   return (
     <main className=' bg-slate-50 '>
@@ -238,19 +257,19 @@ export default function Home() {
       {/* ***************** CONTACT *********************** */}
       {/* TODO: email js */}
       <section id={'contact-us'} className=' md:p-6 '>
-        <div className='flex flex-col md:flex-row justify-around bg-gradient-to-b from-violet-200 to-blue-300 text-black px-8 py-12 md:rounded-[3rem] lg:px-32 xl:px-36'>
+        <div className='flex flex-col md:flex-row justify-around text-black px-8 py-12 md:rounded-[3rem] lg:px-32 xl:px-36'>
           <div className=' w-full flex flex-col justify-center gap-y-4 md:gap-y-16  md:flex-[0.6]'>
-            <h3 className='text-3xl text-zinc-800 lg:text-5xl xl:text-6xl font-bold tracking-wide  text-center md:text-start'>
+            <h3 className='text-3xl text-blue-950 lg:text-5xl xl:text-6xl font-bold tracking-wide  text-center md:text-start'>
               Contact Us
             </h3>
-            <div className='flex flex-col items-center font-medium md:items-start gap-y-2 text-xl '>
-              <div className='flex items-center gap-x-2'>
+            <div className='flex flex-col items-center font-light md:items-start gap-y-4 text-xl '>
+              <div className='flex items-center gap-x-3'>
                 <span>
                   <Mail className='size-5' />
                 </span>
                 <span>test@email.com</span>
               </div>
-              <div className='flex items-center gap-x-2'>
+              <div className='flex items-center gap-x-3'>
                 <span>
                   <Phone className='size-5' />
                 </span>
@@ -258,31 +277,39 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className='md:flex-[0.5] mt-16'>
-            <form className='flex flex-col gap-y-6 w-full border p-4 rounded-md border-white'>
+          <div className='md:flex-[0.5] mt-16 shadow-xl rounded-lg'>
+            <form
+              ref={form}
+              onSubmit={sendEmail}
+              className='flex flex-col gap-y-6 w-full  p-8 rounded-lg bg-white '
+            >
               <input
                 type='text'
                 placeholder='Your name'
-                className='p-2 rounded-md bg-white/30 placeholder:text-zinc-600 focus-visible:outline-none border border-white/15'
+                name='user_name'
+                className='p-2 rounded-md  placeholder:text-zinc-600 focus-visible:outline-none focus-visible:border-violet-500 border-2 border-violet-200   '
               />
               <input
                 placeholder='Email'
                 type='text'
-                className='p-2 rounded-md bg-white/30 placeholder:text-zinc-600 focus-visible:outline-none border border-white/15'
+                name='user_email'
+                className='p-2 rounded-md  placeholder:text-zinc-600 focus-visible:outline-none focus-visible:border-violet-500 border-2 border-violet-200   '
               />
               <input
                 type='number'
                 min={10}
                 max={10}
+                name='user_contact'
                 placeholder='Phone number'
-                className='p-2 rounded-md bg-white/30 placeholder:text-zinc-600 focus-visible:outline-none border border-white/15'
+                className='p-2 rounded-md  placeholder:text-zinc-600 focus-visible:outline-none focus-visible:border-violet-500 border-2 border-violet-200   '
               />
               <textarea
                 placeholder='Type your message here...'
                 rows={7}
-                className='p-2 rounded-md bg-white/30 placeholder:text-zinc-600 focus-visible:outline-none border border-white/15'
+                name='message'
+                className='p-2 rounded-md  placeholder:text-zinc-600 focus-visible:outline-none focus-visible:border-violet-500 border-2 border-violet-200   '
               />
-              <button className='bg-white p-2 rounded-md text-black font-medium uppercase tracking-wide'>
+              <button className='bg-violet-500 text-white p-2 rounded-md  font-medium uppercase tracking-wide'>
                 Submit form
               </button>
             </form>

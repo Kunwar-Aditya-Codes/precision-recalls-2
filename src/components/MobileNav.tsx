@@ -29,7 +29,7 @@ const MobileNav = () => {
               <ArrowRight className='size-6 bg-white rounded-full p-1.5' /> Menu
             </button>
           </DropdownMenuTrigger>
-          <DropdownMenuContent className='lg:hidden w-screen h-screen flex flex-col items-center '>
+          <DropdownMenuContent className='lg:hidden w-[15rem] mr-12 flex flex-col items-center '>
             {NAV_ITEMS.map((item, index) => (
               <DropdownMenuItem
                 key={index}
@@ -37,7 +37,7 @@ const MobileNav = () => {
               >
                 <Link
                   href={item.link}
-                  className='w-full text-center py-2  text-blue-950 font-medium   text-lg tracking-tight'
+                  className='w-full text-center py-2  text-blue-950 font-medium tracking-tight'
                 >
                   {item.title}
                 </Link>
