@@ -196,7 +196,7 @@ export default function Home() {
             }}
             initial='hidden'
             animate='visible'
-            className='absolute md:rounded-[3rem] top-0 left-0 right-0 bottom-0 bg-blue-950 z-[5]'
+            className='absolute translate md:rounded-[3rem] top-0 left-0 right-0 bottom-0 bg-blue-950 z-[5]'
           />
         </div>
       </section>
