@@ -13,12 +13,13 @@ import {
   useMotionTemplate,
   useMotionValue,
 } from 'framer-motion';
-import { ArrowRight, Mail, Phone } from 'lucide-react';
+import { ArrowRight, Loader2, Mail, Phone } from 'lucide-react';
 import { Lilita_One } from 'next/font/google';
 import Image from 'next/image';
 import Link from 'next/link';
-import { FormEvent, useEffect, useRef } from 'react';
+import { FormEvent, useEffect, useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
+import { toast } from 'sonner';
 
 const righteous = Lilita_One({
   weight: ['400'],
@@ -27,6 +28,7 @@ const righteous = Lilita_One({
 
 export default function Home() {
   const form = useRef<HTMLFormElement | null>(null);
+  const [loading, setLoading] = useState<boolean>(false);
   // const ref = useRef(null);
   // const { scrollYProgress } = useScroll({
   //   target: ref,
@@ -49,6 +51,7 @@ export default function Home() {
 
   const sendEmail = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setLoading(true);
 
     if (form.current)
       emailjs
@@ -57,14 +60,21 @@ export default function Home() {
         })
         .then(
           () => {
-            window.alert('SUCCESS');
-            console.log('SUCCESS!');
+            toast.success('Email sent successfull!', {
+              duration: 1000,
+            });
+            form.current?.reset();
           },
           (error) => {
-            window.alert('FAILED');
+            toast.error('Something went wrong. Try again!', {
+              duration: 1000,
+            });
             console.log('FAILED...', error.text);
           }
-        );
+        )
+        .finally(() => {
+          setLoading(false);
+        });
   };
 
   return (
@@ -255,7 +265,6 @@ export default function Home() {
       </motion.section>
 
       {/* ***************** CONTACT *********************** */}
-      {/* TODO: email js */}
       <section id={'contact-us'} className=' md:p-6 '>
         <div className='flex flex-col md:flex-row justify-around text-black px-8 py-12 md:rounded-[3rem] lg:px-32 xl:px-36'>
           <div className=' w-full flex flex-col justify-center gap-y-4 md:gap-y-16  md:flex-[0.6]'>
@@ -297,8 +306,7 @@ export default function Home() {
               />
               <input
                 type='number'
-                min={10}
-                max={10}
+                pattern='\d{10}'
                 name='user_contact'
                 placeholder='Phone number'
                 className='p-2 rounded-md  placeholder:text-zinc-600 focus-visible:outline-none focus-visible:border-violet-500 border-2 border-violet-200   '
@@ -309,8 +317,15 @@ export default function Home() {
                 name='message'
                 className='p-2 rounded-md  placeholder:text-zinc-600 focus-visible:outline-none focus-visible:border-violet-500 border-2 border-violet-200   '
               />
-              <button className='bg-violet-500 text-white p-2 rounded-md  font-medium uppercase tracking-wide'>
-                Submit form
+              <button
+                disabled={loading}
+                className='bg-violet-500 text-white p-2 rounded-md  font-medium uppercase tracking-wide'
+              >
+                {loading ? (
+                  <Loader2 className='size-5 animate-spin mx-auto' />
+                ) : (
+                  'Submit form'
+                )}
               </button>
             </form>
           </div>

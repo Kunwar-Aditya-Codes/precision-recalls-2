@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import { Roboto } from 'next/font/google';
+import { Toaster } from '@/components/ui/sonner';
+
 import './globals.css';
 
 const inter = Roboto({
@@ -19,7 +21,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        {children}
+
+        <Toaster position='top-center' richColors={true} />
+      </body>
     </html>
   );
 }
