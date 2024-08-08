@@ -86,78 +86,122 @@ export default function Home() {
 
         <div className='md:rounded-[3rem] relative shadow  bg-gradient-to-br from-blue-200 to-purple-400 min-h-screen '>
           <div className=' bg-[url("/rect.svg")] bg-white/50 bg-blend-color  min-h-screen md:rounded-[3rem] bg-center bg-cover p-4'>
-            <motion.nav
-              variants={{
-                hidden: { opacity: 0 },
-                visible: { opacity: 1 },
-              }}
-              transition={{
-                duration: 0.5,
-                delay: 0.25,
-              }}
-              initial='hidden'
-              animate='visible'
-              className='hidden py-6 px-24 lg:flex items-center justify-between'
-            >
-              <h1
-                className={cn(
-                  'text-4xl   text-blue-950 uppercase tracking-wide',
-                  righteous.className
-                )}
+            <div className='relative'>
+              <motion.nav
+                variants={{
+                  hidden: { opacity: 0 },
+                  visible: { opacity: 1 },
+                }}
+                transition={{
+                  duration: 0.5,
+                  delay: 0.25,
+                }}
+                initial='hidden'
+                animate='visible'
+                className='hidden py-6 px-24 lg:flex items-center justify-between'
               >
-                Precision Recalls
-              </h1>
+                <h1
+                  className={cn(
+                    'text-4xl   text-blue-950 uppercase tracking-wide',
+                    righteous.className
+                  )}
+                >
+                  Precision Recalls
+                </h1>
 
-              <ul className='flex items-center gap-x-6'>
-                {NAV_ITEMS.map((item, index) => (
-                  <Link href={item.link} key={index}>
-                    <li className='bg-white/50 text-blue-950 font-medium text-sm px-3 py-1.5 border rounded-full'>
-                      {item.title}
-                    </li>
-                  </Link>
-                ))}
-              </ul>
-            </motion.nav>
+                <ul className='flex items-center gap-x-6'>
+                  {NAV_ITEMS.map((item, index) => (
+                    <Link href={item.link} key={index}>
+                      <li className='bg-white/50 text-blue-950 font-medium text-sm px-3 py-1.5 border rounded-full'>
+                        {item.title}
+                      </li>
+                    </Link>
+                  ))}
+                </ul>
+              </motion.nav>
+              <motion.div
+                variants={{
+                  hidden: { left: 0 },
+                  visible: { left: '100%' },
+                }}
+                transition={{
+                  duration: 0.5,
+                  ease: 'easeIn',
+                }}
+                initial='hidden'
+                animate='visible'
+                className='absolute -skew-x-3 translate  top-0 left-0 right-0 bottom-0 bg-blue-950 z-[5]'
+              />
+            </div>
 
             <div className='lg:px-24 flex flex-col gap-y-16 lg:gap-y-0 lg:flex-row items-center lg:gap-x-16 justify-between'>
               <div className=' max-w-[70rem] '>
-                <motion.h2
-                  variants={{
-                    hidden: { opacity: 0 },
-                    visible: { opacity: 1 },
-                  }}
-                  transition={{
-                    duration: 0.5,
-                    delay: 0.25,
-                  }}
-                  initial='hidden'
-                  animate='visible'
-                  className={cn(
-                    'text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-blue-950  text-center lg:text-start mt-8 md:mt-16 font-semibold lg:!leading-[5.125rem]'
-                  )}
-                >
-                  From data to deployment: we drive your success
-                </motion.h2>
-
-                <motion.p
-                  variants={{
-                    hidden: { opacity: 0 },
-                    visible: { opacity: 1 },
-                  }}
-                  transition={{
-                    duration: 0.5,
-                    delay: 0.25,
-                  }}
-                  initial='hidden'
-                  animate='visible'
-                  className='text-center lg:text-start lg:text-xl tracking-wide mt-8'
-                >
-                  Precision Recalls offers exceptional services to elevate your
-                  business, specializing in AI/ML, web and app development, data
-                  analytics, digital marketing, software development, and
-                  e-commerce setup. We ensure comprehensive support across all
-                  your needs.
-                </motion.p>
+                <div className='relative'>
+                  <motion.h2
+                    variants={{
+                      hidden: { opacity: 0, y: 75 },
+                      visible: { opacity: 1, y: 0 },
+                    }}
+                    transition={{
+                      duration: 0.5,
+                      delay: 0.25,
+                    }}
+                    initial='hidden'
+                    animate='visible'
+                    className={cn(
+                      'text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-blue-950  text-center lg:text-start mt-8 md:mt-16 font-semibold lg:!leading-[5.125rem]'
+                    )}
+                  >
+                    From data to deployment: we drive your success
+                  </motion.h2>
+                  <motion.div
+                    variants={{
+                      hidden: { left: 0 },
+                      visible: { left: '100%' },
+                    }}
+                    transition={{
+                      duration: 0.5,
+                      ease: 'easeIn',
+                    }}
+                    initial='hidden'
+                    animate='visible'
+                    className='absolute -skew-x-3 translate  top-0 left-0 right-0 bottom-0 bg-blue-950 z-[5]'
+                  />
+                </div>
+                <div className='relative'>
+                  <motion.p
+                    variants={{
+                      hidden: { opacity: 0, y: 75 },
+                      visible: { opacity: 1, y: 0 },
+                    }}
+                    transition={{
+                      duration: 0.5,
+                      delay: 0.25,
+                    }}
+                    initial='hidden'
+                    animate='visible'
+                    className='text-center  lg:text-start lg:text-xl tracking-wide mt-8'
+                  >
+                    Precision Recalls offers exceptional services to elevate
+                    your business, specializing in AI/ML, web and app
+                    development, data analytics, digital marketing, software
+                    development, and e-commerce setup. We ensure comprehensive
+                    support across all your needs.
+                  </motion.p>
+                  <motion.div
+                    variants={{
+                      hidden: { left: 0 },
+                      visible: { left: '100%' },
+                    }}
+                    transition={{
+                      duration: 0.5,
+                      ease: 'easeIn',
+                    }}
+                    initial='hidden'
+                    animate='visible'
+                    className='absolute -skew-x-3 translate top-0 left-0 right-0 bottom-0 bg-blue-950 z-[5]'
+                  />
+                </div>
 
                 <motion.button
                   variants={{
@@ -185,7 +229,7 @@ export default function Home() {
               />
             </div>
           </div>
-          <motion.div
+          {/* <motion.div
             variants={{
               hidden: { left: 0 },
               visible: { left: '100%' },
@@ -197,7 +241,7 @@ export default function Home() {
             initial='hidden'
             animate='visible'
             className='absolute translate md:rounded-[3rem] top-0 left-0 right-0 bottom-0 bg-blue-950 z-[5]'
-          />
+          /> */}
         </div>
       </section>
 
