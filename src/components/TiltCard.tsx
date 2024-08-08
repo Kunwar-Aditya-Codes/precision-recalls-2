@@ -1,12 +1,6 @@
 'use client';
 
-import {
-  useMotionValue,
-  useSpring,
-  useTransform,
-  motion,
-  animate,
-} from 'framer-motion';
+import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import Image from 'next/image';
 
 const TiltCard = ({
@@ -112,14 +106,14 @@ const TiltCard = ({
           height={200}
           className=' mx-auto h-[12rem] object-cover'
         />
-        <h4
+        <h3
           style={{
             transform: 'translateZ(60px)',
           }}
           className='text-xl font-medium text-center tracking-tight mt-4'
         >
           {service.title}
-        </h4>
+        </h3>
         <p
           style={{
             transform: 'translateZ(60px)',

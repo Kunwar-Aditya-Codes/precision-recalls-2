@@ -8,19 +8,10 @@ import {
   CarouselPrevious,
 } from '@/components/ui/carousel';
 import { PROJECTS } from '@/lib/data-constants';
-import { MotionValue, useTransform, motion } from 'framer-motion';
-
-// {
-//   scrollYProgress,
-// }: {
-//   scrollYProgress: MotionValue<number>;
-// }
+import { motion } from 'framer-motion';
 
 const Portfolio = () => {
-  // const scale = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
-  // const rotate = useTransform(scrollYProgress, [0, 1], [-5, 0]);
   return (
-    // style={{ scale }}
     <motion.div className='relative mt-6'>
       <Carousel
         opts={{
@@ -28,7 +19,7 @@ const Portfolio = () => {
         }}
         className='relative max-w-[85rem] mx-auto px-4 lg:px-12 xl:px-0  pb-20'
       >
-        <CarouselContent className='-mx-4  lg:-mx-1'>
+        <CarouselContent className='-mx-4 lg:-mx-1'>
           {PROJECTS.map((project, index) => (
             <CarouselItem
               key={index}
@@ -38,7 +29,7 @@ const Portfolio = () => {
                 style={{
                   backgroundImage: `url(${project.image})`,
                 }}
-                className='rounded-2xl bg-black/95 border border-zinc-800 bg-blend-color bg-cover bg-center backdrop-blur-md aspect-auto p-6 h-[38rem] flex flex-col gap-y-10'
+                className='rounded-2xl bg-black/80 border border-zinc-800 bg-blend-color bg-cover bg-center backdrop-blur-md aspect-auto p-6 h-[38rem] flex flex-col gap-y-10'
               >
                 <div className='flex flex-col gap-y-3 '>
                   <label className='bg-white w-fit text-sm tracking-wider px-3 py-1 text-black rounded-full'>
@@ -52,7 +43,7 @@ const Portfolio = () => {
                   <label className='bg-white w-fit text-sm tracking-wider px-3 py-1 text-black rounded-full'>
                     Description
                   </label>
-                  <p className='text-zinc-400 md:text-lg  text-balance '>
+                  <p className='text-zinc-200 md:text-lg  text-balance '>
                     {project.description}
                   </p>
                 </div>

@@ -268,25 +268,21 @@ export default function Home() {
       {/* ***************** PROJECTS *********************** */}
 
       <section id='portfolio' className='relative md:p-6 overflow-hidden'>
-        {/* <ParallaxTitle scrollYProgress={scrollYProgress} /> */}
-        {/* bg-gradient-to-r from-[#0c0a1c] to-[#020410] */}
-        <motion.div className='md:rounded-[3rem] bg-gradient-to-br to-[#0c0a1c] from-[#020410]'>
-          <div className='md:rounded-[3rem] bg-[url("/projects/projectbg.webp")] bg-black/50 bg-blend-color bg-center bg-cover'>
-            <h2 className='px-16 text-center py-8 mx-auto md:mx-0 md:text-start text-transparent bg-clip-text text-4xl lg:text-5xl xl:text-6xl font-bold tracking-wide w-fit bg-gradient-to-br from-sky-500 to-fuchsia-400'>
-              Featured Project
-            </h2>
-            <Portfolio />
-          </div>
-        </motion.div>
+        <div className='md:rounded-[3rem] bg-gradient-to-b from-sky-200 to-blue-400 pt-6'>
+          <h2 className='px-16 text-center py-8 mx-auto md:mx-0 md:text-start text-4xl lg:text-5xl xl:text-6xl font-bold tracking-wide w-fit text-blue-950'>
+            Featured Project
+          </h2>
+          <Portfolio />
+        </div>
       </section>
 
       {/* ***************** ABOUT *********************** */}
 
       <section
         id={'about'}
-        className='overflow-x-hidden min-h-screen flex flex-col pb-28'
+        className='overflow-x-hidden min-h-screen flex flex-col pb-12'
       >
-        <h2 className='text-center mx-auto text-blue-950 text-4xl lg:text-5xl xl:text-6xl font-bold w-fit  uppercase mt-12 mb-8'>
+        <h2 className='text-center mx-auto text-blue-950 text-4xl lg:text-5xl xl:text-6xl font-bold w-fit  uppercase mt-8 mb-10'>
           About
         </h2>
         <AboutUs />
@@ -363,7 +359,7 @@ export default function Home() {
               />
               <button
                 disabled={loading}
-                className='bg-violet-500 text-white p-2 rounded-md  font-medium uppercase tracking-wide'
+                className='bg-violet-700 text-white p-2 rounded-md  font-medium uppercase tracking-wide'
               >
                 {loading ? (
                   <Loader2 className='size-5 animate-spin mx-auto' />
