@@ -88,8 +88,8 @@ export default function Home() {
           <div className=' bg-[url("/rect.svg")] bg-white/50 bg-blend-color  min-h-screen md:rounded-[3rem] bg-center bg-cover p-4'>
             <motion.nav
               variants={{
-                hidden: { opacity: 0, y: 75 },
-                visible: { opacity: 1, y: 0 },
+                hidden: { opacity: 0 },
+                visible: { opacity: 1 },
               }}
               transition={{
                 duration: 0.5,
@@ -123,8 +123,8 @@ export default function Home() {
               <div className=' max-w-[70rem] '>
                 <motion.h2
                   variants={{
-                    hidden: { opacity: 0, y: 75 },
-                    visible: { opacity: 1, y: 0 },
+                    hidden: { opacity: 0 },
+                    visible: { opacity: 1 },
                   }}
                   transition={{
                     duration: 0.5,
@@ -141,8 +141,8 @@ export default function Home() {
 
                 <motion.p
                   variants={{
-                    hidden: { opacity: 0, y: 75 },
-                    visible: { opacity: 1, y: 0 },
+                    hidden: { opacity: 0 },
+                    visible: { opacity: 1 },
                   }}
                   transition={{
                     duration: 0.5,
@@ -161,8 +161,8 @@ export default function Home() {
 
                 <motion.button
                   variants={{
-                    hidden: { opacity: 0, y: 75 },
-                    visible: { opacity: 1, y: 0 },
+                    hidden: { opacity: 0 },
+                    visible: { opacity: 1 },
                   }}
                   transition={{
                     duration: 0.5,
@@ -196,7 +196,7 @@ export default function Home() {
             }}
             initial='hidden'
             animate='visible'
-            className='fixed top-0 left-0 right-0 bottom-0 bg-blue-950 z-[5]'
+            className='absolute md:rounded-[3rem] top-0 left-0 right-0 bottom-0 bg-blue-950 z-[5]'
           />
         </div>
       </section>
