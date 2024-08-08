@@ -20,7 +20,7 @@ export const NAV_ITEMS = [
 export const PROJECTS = [
   {
     title: 'Face Clustering',
-    image: '/projects/face-cluster.jpg',
+    image: '/projects/face-cluster.webp',
     description: [
       'Detects and clusters faces from CCTV footage using advanced computer vision techniques.',
       'Provides real-time headcount metrics and threat identification for enhanced security.',
@@ -30,7 +30,7 @@ export const PROJECTS = [
   },
   {
     title: 'Activity Classification for Sports Analytics',
-    image: '/projects/sports-analysis.jpg',
+    image: '/projects/sports-analysis.webp',
     description: [
       'Classifies physical activities by analyzing body posture coordinates from videos.',
       'Facilitates remote fitness training by providing detailed activity analysis.',
@@ -40,7 +40,7 @@ export const PROJECTS = [
   },
   {
     title: 'Sales Forecasting Time Series Model',
-    image: '/projects/market-analysis.jpg',
+    image: '/projects/market-analysis.webp',
     description: [
       'Develops a time series model for accurate sales forecasting and inventory estimation.',
       'Optimizes financial planning and resource allocation for FMCG companies and other industries.',
@@ -50,7 +50,7 @@ export const PROJECTS = [
   },
   {
     title: 'Personalized E-commerce Recommendation',
-    image: '/projects/ecommerce.jpg',
+    image: '/projects/ecommerce.webp',
     description: [
       'Led the creation of a personalized recommendation engine for e-commerce.',
       'Utilized advanced AI/ML techniques to tailor product suggestions to user preferences.',

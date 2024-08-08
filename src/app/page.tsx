@@ -227,7 +227,7 @@ export default function Home() {
         {/* <ParallaxTitle scrollYProgress={scrollYProgress} /> */}
         {/* bg-gradient-to-r from-[#0c0a1c] to-[#020410] */}
         <motion.div className='md:rounded-[3rem] bg-gradient-to-br to-[#0c0a1c] from-[#020410]'>
-          <div className='md:rounded-[3rem] bg-[url("/projects/projectbg.png")] bg-black/50 bg-blend-color bg-center bg-cover'>
+          <div className='md:rounded-[3rem] bg-[url("/projects/projectbg.webp")] bg-black/50 bg-blend-color bg-center bg-cover'>
             <h2 className='px-16 text-center py-8 mx-auto md:mx-0 md:text-start text-transparent bg-clip-text text-4xl lg:text-5xl xl:text-6xl font-bold tracking-wide w-fit bg-gradient-to-br from-sky-500 to-fuchsia-400'>
               Featured Project
             </h2>
