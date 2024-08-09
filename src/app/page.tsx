@@ -20,6 +20,7 @@ import Link from 'next/link';
 import { FormEvent, useEffect, useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import { toast } from 'sonner';
+import Team from '@/components/Team';
 
 const righteous = Lilita_One({
   weight: ['400'],
@@ -248,11 +249,10 @@ export default function Home() {
       {/* ***************** SERVICES *********************** */}
 
       <section id='services' className=' md:p-6 mt-4 overflow-x-hidden'>
-        {/*md:rounded-[3rem] bg-gradient-to-b from-violet-200 to-blue-300 shadow-md */}
         <div className='flex flex-col gap-y-8 xl:gap-y-0 xl:flex-row py-12 lg:px-10 xl:px-12 md:rounded-[3rem] bg-gradient-to-r from-blue-200 to-blue-100  w-full '>
           <h2
             className={cn(
-              ' text-blue-950 text-center text-3xl lg:text-4xl xl:text-start xl:text-5xl tracking-wide font-black uppercase  leading-[4rem]'
+              ' text-blue-950 text-center text-2xl lg:text-4xl xl:text-start  tracking-wide font-black uppercase  leading-[4rem]'
             )}
           >
             Services We Provide
@@ -297,12 +297,23 @@ export default function Home() {
         className=' h-[calc(100vh-4rem)]'
       >
         <div className='py-8 rounded-[3rem] w-full h-full flex flex-col justify-center gap-y-28 '>
-          <h3 className='px-6 text-center text-zinc-300  w-fit mx-auto text-5xl font-bold tracking-tight'>
+          <h3 className='px-6 text-center text-zinc-300  w-fit mx-auto text-3xl md:text-5xl font-bold tracking-tight'>
             What our clients have to say...
           </h3>
           <Testimonials />
         </div>
       </motion.section>
+
+      {/* ***************** TEAM *********************** */}
+      <section
+        id={'team'}
+        className='overflow-x-hidden min-h-screen flex flex-col pb-12 pt-16 bg-gradient-to-b from-white to-zinc-100'
+      >
+        <h2 className='text-center mx-auto text-white bg-gradient-to-br from-indigo-400 to-cyan-400 px-3 py-1.5 -skew-x-6 rounded-sm  text-4xl lg:text-5xl xl:text-6xl font-bold w-fit  uppercase mt-8 mb-10'>
+          Meet our team
+        </h2>
+        <Team />
+      </section>
 
       {/* ***************** CONTACT *********************** */}
       <section id={'contact-us'} className=' md:p-6 '>

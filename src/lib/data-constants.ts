@@ -101,114 +101,41 @@ export const SERVICES = [
 
 export const COLORS = ['#13FFAA', '#b567ff', '#CE84CF', '#DD335C'];
 
-export const ABOUT = [
+export const TEAM = [
   {
-    title: 'Core Values',
-    about: [
-      {
-        subTitle: 'Customer-centric Approach',
-        description: '',
-      },
-      {
-        subTitle: 'Flexibility & Adaptability',
-        description: '',
-      },
-      {
-        subTitle: 'Fair & Reliable',
-        description: '',
-      },
-      {
-        subTitle: 'Dynamic & Evolving',
-        description: '',
-      },
-      {
-        subTitle: 'Embrace and Drive',
-        description: '',
-      },
-      {
-        subTitle: 'Change Foster Growth and Learning',
-        description: '',
-      },
-    ],
+    memberName: 'Abhay Agarwal',
+    position: 'Data Scientist/Mentor/Consultant',
+    description:
+      "An IIT Kanpur graduate with 8+ years of expertise in web development, AI/ML, data analytics, and product ideation, I've contributed to fintech, e-commerce, retail, and sports industries. Passionate about cutting-edge technology and mentoring early-stage projects, I also have experience in DevOps, market research, and professional writing. Outside of work, I explore new ideas, travel, cook, and socialize.",
+  },
+  {
+    memberName: 'Nimit Khandelwal',
+    position: ' SDE-3/Tech Lead/Consultant',
+
+    description:
+      'A hands-on technology leader and entrepreneur with 8+ years in building large-scale systems and 4+ years leading engineering teams, I have experience in Enterprise Solutions, Fintech, 3rd Party Logistics, and Hybrid Mobile Apps. Skilled in JavaScript, Java, Python, React Native, Flutter, AWS, and Node.js, I focus on delivering innovative solutions and building strong engineering teams.',
   },
 
   {
-    title: 'Key Differentiators',
-    about: [
-      {
-        subTitle: 'Industry Experience',
-        description:
-          'Skilled in leveraging technology for innovation, efficiency, and sustainability, with proficiency in advanced security measures and AI-driven solutions for business challenges.',
-      },
+    memberName: 'Manali Garg',
+    position: 'Digital Marketer/Creative Head',
 
-      {
-        subTitle: 'Reusable Pipelines',
-        description:
-          'Reusable Data Preprocessing Scripts for faster turn around time of projects to save overall costs.',
-      },
-      {
-        subTitle: 'Tools and Technologies',
-        description:
-          'Python/JAVA/R/Node.js, SQL, Spark, Kafka, AWS, GCP, Google Looker, Tableau, PowerBI & Other related libraries etc.',
-      },
-      {
-        subTitle: 'DS/DA Team',
-        description: 'Our team possesses expertise on multiple technologies.',
-      },
-    ],
+    description:
+      'A hands-on technology leader and entrepreneur with 8+ years of experience in building large-scale systems and over 4 years in leading engineering teams. Experienced across Enterprise Solutions, Fintech, 3rd Party Logistics, and Hybrid Mobile Apps. Skilled in developing software products using technologies like JavaScript, Java, Python, React Native, Flutter, AWS, and Node.js, with a focus on delivering innovative solutions and building strong engineering teams.',
+  },
+  {
+    memberName: 'Garv Agarwal',
+    position: 'Data Scientist/Software Developer',
+
+    description:
+      'A hands-on technology leader and entrepreneur with 8+ years of experience in building large-scale systems and over 4 years in leading engineering teams. Experienced across Enterprise Solutions, Fintech, 3rd Party Logistics, and Hybrid Mobile Apps. Skilled in developing software products using technologies like JavaScript, Java, Python, React Native, Flutter, AWS, and Node.js, with a focus on delivering innovative solutions and building strong engineering teams.',
   },
 
   {
-    title: 'Business Model',
-    about: [
-      {
-        subTitle: 'COMPLEX CHALLEGES( Flexible Pricing )',
-        description:
-          'For data science projects with dynamic requirements and changing deadlines, we charge an hourly rate.',
-      },
-      {
-        subTitle: 'Dedicated Team',
-        description:
-          'For customers seeking a fully dedicated DS team, we charge per resource based on their experience and expertise.',
-      },
-      {
-        subTitle: 'Fixed Price',
-        description:
-          'Based on initial timeline estimates, we provide fixed-cost, budget-friendly quotes.',
-      },
-    ],
-  },
+    memberName: 'Kunwar Aditya',
+    position: 'Web Developer/Project Lead/Consultant',
 
-  {
-    title: 'Why choose us?',
-    about: [
-      {
-        subTitle: 'A team of 10 Data Scientists with vast experience.',
-        description: '',
-      },
-      {
-        subTitle: '92% clients prefer to renew contracts with us.',
-        description: '',
-      },
-      {
-        subTitle: 'A team of 10 Data Scientists with vast experience.',
-        description: '',
-      },
-      {
-        subTitle:
-          'Delivered projects worth more than 50 lakhs within 1.5 years of inception.',
-        description: '',
-      },
-      {
-        subTitle:
-          'Flexible Pricing plans as per project duration/client requirements.',
-        description: '',
-      },
-      {
-        subTitle:
-          'Expertise in hardware provisioning to algorithm development.',
-        description: '',
-      },
-    ],
+    description:
+      'A fullstack developer which utilises technologies like React , Nodejs , Express , Nextjs and many more to deliver you the best software.',
   },
 ];
