@@ -13,7 +13,7 @@ import {
   useMotionTemplate,
   useMotionValue,
 } from 'framer-motion';
-import { ArrowRight, Loader2, Mail, Phone } from 'lucide-react';
+import { ArrowRight, ChevronRight, Loader2, Mail, Phone } from 'lucide-react';
 import { Lilita_One } from 'next/font/google';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -85,7 +85,7 @@ export default function Home() {
       <section className=' md:p-6  mt-[4.5rem] lg:mt-0 overflow-x-hidden'>
         <MobileNav />
 
-        <div className='md:rounded-[3rem] relative shadow  bg-gradient-to-br from-blue-200 to-purple-400 min-h-screen '>
+        <div className='md:rounded-[3rem] relative shadow  bg-gradient-to-br from-blue-200 to-blue-400 min-h-screen'>
           <div className=' bg-[url("/rect.svg")] bg-white/50 bg-blend-color  min-h-screen md:rounded-[3rem] bg-center bg-cover p-4'>
             <div className='relative'>
               <motion.nav
@@ -230,25 +230,12 @@ export default function Home() {
               />
             </div>
           </div>
-          {/* <motion.div
-            variants={{
-              hidden: { left: 0 },
-              visible: { left: '100%' },
-            }}
-            transition={{
-              duration: 0.5,
-              ease: 'easeIn',
-            }}
-            initial='hidden'
-            animate='visible'
-            className='absolute translate md:rounded-[3rem] top-0 left-0 right-0 bottom-0 bg-blue-950 z-[5]'
-          /> */}
         </div>
       </section>
 
       {/* ***************** SERVICES *********************** */}
 
-      <section id='services' className=' md:p-6 mt-4 overflow-x-hidden'>
+      <section id='services' className=' md:p-6 mt-1 overflow-x-hidden'>
         <div className='flex flex-col gap-y-8 xl:gap-y-0 xl:flex-row py-12 lg:px-10 xl:px-12 md:rounded-[3rem] bg-gradient-to-r from-blue-200 to-blue-100  w-full '>
           <h2
             className={cn(
@@ -382,6 +369,102 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* ***************** FOOTER ***********************  */}
+      <footer className='bg-[#020410] pt-12'>
+        <div className='max-w-7xl mx-auto pb-12 text-white flex flex-col md:flex-row gap-y-16 md:gap-y-0 items-start justify-between px-6'>
+          <div>
+            <h3 className='text-2xl font-semibold tracking-tight'>
+              Precision Recalls
+            </h3>
+            <p className='text-zinc-300 mt-4 max-w-[35rem]'>
+              Precision Recalls offers exceptional services to elevate your
+              business, specializing in AI/ML, web and app development, data
+              analytics, digital marketing, software development, and e-commerce
+              setup. We ensure comprehensive support across all your needs.
+            </p>
+
+            <div className='flex items-center space-x-6 text-zinc-300 mt-4'>
+              <svg
+                xmlns='http://www.w3.org/2000/svg'
+                width='24'
+                height='24'
+                viewBox='0 0 24 24'
+                fill='none'
+                stroke='currentColor'
+                strokeWidth='2'
+                strokeLinecap='round'
+                strokeLinejoin='round'
+                className='lucide lucide-instagram hover:text-zinc-100'
+              >
+                <rect width='20' height='20' x='2' y='2' rx='5' ry='5' />
+                <path d='M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z' />
+                <line x1='17.5' x2='17.51' y1='6.5' y2='6.5' />
+              </svg>
+              <svg
+                xmlns='http://www.w3.org/2000/svg'
+                width='24'
+                height='24'
+                viewBox='0 0 24 24'
+                fill='none'
+                stroke='currentColor'
+                strokeWidth='2'
+                strokeLinecap='round'
+                strokeLinejoin='round'
+                className='lucide lucide-facebook hover:text-zinc-100'
+              >
+                <path d='M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z' />
+              </svg>
+
+              <svg
+                xmlns='http://www.w3.org/2000/svg'
+                width='24'
+                height='24'
+                viewBox='0 0 24 24'
+                fill='none'
+                stroke='currentColor'
+                strokeWidth='2'
+                strokeLinecap='round'
+                strokeLinejoin='round'
+                className='lucide lucide-linkedin hover:text-zinc-100'
+              >
+                <path d='M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z' />
+                <rect width='4' height='12' x='2' y='9' />
+                <circle cx='4' cy='4' r='2' />
+              </svg>
+            </div>
+          </div>
+          <div className=''>
+            <h3 className='text-lg'>Quick Links</h3>
+            <ul className='text-zinc-300  mt-1 flex flex-col gap-y-1'>
+              <li className='flex items-center gap-x-1  hover:text-zinc-100'>
+                <ChevronRight className='size-4' />
+                About Us
+              </li>
+              <li className='flex items-center gap-x-1 hover:text-zinc-100'>
+                <ChevronRight className='size-4' />
+                Portfolio
+              </li>
+              <li className='flex items-center gap-x-1 hover:text-zinc-100'>
+                <ChevronRight className='size-4' />
+                Testimonials
+              </li>
+              <li className='flex items-center gap-x-1 hover:text-zinc-100'>
+                <ChevronRight className='size-4' />
+                Contact Us
+              </li>
+              <li className='flex items-center gap-x-1 hover:text-zinc-100'>
+                <ChevronRight className='size-4' />
+                Privacy Policy
+              </li>
+            </ul>
+          </div>
+        </div>
+        <p className='border-t text-center text-white font-medium text-sm  py-4'>
+          &copy; {new Date().getFullYear()} Precision Recalls. All rights
+          reserved.
+        </p>
+      </footer>
     </main>
   );
 }

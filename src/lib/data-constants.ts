@@ -121,14 +121,14 @@ export const TEAM = [
     position: 'Digital Marketer/Creative Head',
 
     description:
-      'A hands-on technology leader and entrepreneur with 8+ years of experience in building large-scale systems and over 4 years in leading engineering teams. Experienced across Enterprise Solutions, Fintech, 3rd Party Logistics, and Hybrid Mobile Apps. Skilled in developing software products using technologies like JavaScript, Java, Python, React Native, Flutter, AWS, and Node.js, with a focus on delivering innovative solutions and building strong engineering teams.',
+      'With 4 years of experience as a digital marketer, I specialize in creating impactful online strategies that drive results. My expertise covers social media advertising, content marketing, SEO, analytics, email marketing, and PPC campaigns. I excel at designing high-impact ad campaigns on platforms like Meta, crafting engaging content to build brand loyalty, and optimizing web presence for enhanced visibility, ensuring continuous improvement and measurable results.',
   },
   {
     memberName: 'Garv Agarwal',
     position: 'Data Scientist/Software Developer',
 
     description:
-      'A hands-on technology leader and entrepreneur with 8+ years of experience in building large-scale systems and over 4 years in leading engineering teams. Experienced across Enterprise Solutions, Fintech, 3rd Party Logistics, and Hybrid Mobile Apps. Skilled in developing software products using technologies like JavaScript, Java, Python, React Native, Flutter, AWS, and Node.js, with a focus on delivering innovative solutions and building strong engineering teams.',
+      'Garv Agarwal is a skilled data scientist and software developer specializing in AI, Data Science, and Machine Learning. With hands-on experience in AI-driven applications and complex machine learning models, he combines technical expertise with deep data analysis skills. Proficient in Python, SQL, cloud computing, and advanced deep learning frameworks, Garv excels at creating innovative solutions for complex challenges. His dedication to continuous learning and excellence makes him a valuable asset in advancing technology.',
   },
 
   {
@@ -136,6 +136,6 @@ export const TEAM = [
     position: 'Web Developer/Project Lead/Consultant',
 
     description:
-      'A fullstack developer which utilises technologies like React , Nodejs , Express , Nextjs and many more to deliver you the best software.',
+      'As a full-stack developer, I leverage technologies like React, Node.js, Express, and Next.js to deliver top-tier software solutions. My expertise spans front-end and back-end development, enabling me to build responsive and scalable applications. I use React for dynamic, user-friendly interfaces and Node.js with Express for efficient, secure server-side logic. My goal is to integrate these technologies to create high-quality, secure, and intuitive software that performs optimally and is enjoyable to use.',
   },
 ];
