@@ -30,13 +30,6 @@ const righteous = Lilita_One({
 export default function Home() {
   const form = useRef<HTMLFormElement | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
-  // const ref = useRef(null);
-  // const { scrollYProgress } = useScroll({
-  //   target: ref,
-  //   offset: ['start end', 'end end'],
-  // });
-  // const opacity = useTransform(scrollYProgress, [0, 0.3, 1], [0, 1, 1]);
-  // const x = useTransform(scrollYProgress, [0, 0.4, 1], ['-100%', '-5%', '0%']);
 
   const color = useMotionValue(COLORS[0]);
   const backgroundImage = useMotionTemplate`radial-gradient(160% 160% at 50% 0% , #020410 50%, ${color})`;
@@ -236,15 +229,15 @@ export default function Home() {
       {/* ***************** SERVICES *********************** */}
 
       <section id='services' className=' md:p-6 mt-1 overflow-x-hidden'>
-        <div className='flex flex-col gap-y-8 xl:gap-y-0 xl:flex-row py-12 lg:px-10 xl:px-12 md:rounded-[3rem] bg-gradient-to-r from-blue-200 to-blue-100  w-full '>
+        <div className='flex flex-col gap-y-8   py-12 lg:px-10 xl:px-16 md:rounded-[3rem] bg-gradient-to-r from-blue-200 to-blue-100  w-full '>
           <h2
             className={cn(
-              ' text-blue-950 text-center text-2xl lg:text-4xl xl:text-start  tracking-wide font-black uppercase  leading-[4rem]'
+              ' text-blue-950 text-center text-2xl lg:text-4xl xl:text-5xl xl:text-start  tracking-wide font-black uppercase gap-x-2 xl:flex-col xl:gap-y-4'
             )}
           >
             Services We Provide
           </h2>
-          <div className='grow grid w-full grid-cols-1 justify-items-center sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-12  '>
+          <div className='grow grid w-full grid-cols-1  sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-12  '>
             {SERVICES.map((service, index) => (
               <TiltCard key={index} service={service} index={index} />
             ))}
@@ -254,7 +247,7 @@ export default function Home() {
 
       {/* ***************** PROJECTS *********************** */}
 
-      <section id='portfolio' className='relative md:p-6 overflow-hidden'>
+      <section id='portfolio' className='md:p-6 overflow-hidden'>
         <div className='md:rounded-[3rem] bg-gradient-to-b from-sky-200 to-blue-400 pt-6'>
           <h2 className='px-16 text-center py-8 mx-auto md:mx-0 md:text-start text-4xl lg:text-5xl xl:text-6xl font-bold tracking-wide w-fit text-blue-950'>
             Featured Project

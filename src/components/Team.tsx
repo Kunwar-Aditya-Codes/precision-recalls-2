@@ -14,12 +14,13 @@ const getInitials = (name: string) => {
 };
 
 const Team = () => {
+  // TODO: fix description and remove scroll
   return (
     <div className=' grow max-w-[85rem] w-full justify-items-center  mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  mt-6 gap-6'>
       {TEAM.map((member, index) => (
         <div
           key={index}
-          className='w-[17.5rem] md:w-[20rem] h-[16rem] aspect-square bg-white border shadow-md p-6 relative rounded-xl overflow-hidden group'
+          className='w-full h-[16rem] aspect-square bg-white border shadow-md p-6 relative rounded-xl overflow-hidden group'
         >
           <h2 className='text-3xl font-bold'>{member.memberName}</h2>
           <p className='text-zinc-700 mt-2'>{member.position}</p>

@@ -139,3 +139,59 @@ export const TEAM = [
       'As a full-stack developer, I leverage technologies like React, Node.js, Express, and Next.js to deliver top-tier software solutions. My expertise spans front-end and back-end development, enabling me to build responsive and scalable applications. I use React for dynamic, user-friendly interfaces and Node.js with Express for efficient, secure server-side logic. My goal is to integrate these technologies to create high-quality, secure, and intuitive software that performs optimally and is enjoyable to use.',
   },
 ];
+
+export const ABOUT_US = [
+  {
+    title: 'Core Values',
+    description: [
+      'Embrace a customer-centric approach focused on flexibility and adaptability.',
+      'Ensure fairness and reliability while being dynamic and evolving.',
+      'Commit to fostering growth and learning.',
+      'Continuously embrace and drive change.',
+    ],
+    image: '/about/about-1.jpg',
+    shadow: 'shadow-indigo-200',
+    text: 'text-indigo-600',
+    background: 'bg-gradient-to-br from-indigo-200 to-indigo-400',
+  },
+  {
+    title: 'Key Differentiators',
+    description: [
+      'Expert DS/DA team with extensive industry experience.',
+      'Leverage advanced technologies, including AI-driven solutions.',
+      'Utilize reusable data pipelines and tools like Python, SQL, and AWS.',
+      'Drive innovation, efficiency, and sustainable, cost-effective business outcome',
+    ],
+    image: '/about/about-2.jpg',
+    shadow: 'shadow-sky-200',
+    text: 'text-sky-600',
+    background: 'bg-gradient-to-br from-sky-200 to-sky-400',
+  },
+  {
+    title: 'Business Model',
+    description: [
+      'Offer flexible pricing for complex data science projects.',
+      'Provide hourly rates for dynamic needs.',
+      'Offer dedicated team rates based on experience.',
+      'Provide fixed-cost quotes for budget-friendly solutions aligned with initial timelines.',
+    ],
+    image: '/about/about-3.jpg',
+    shadow: 'shadow-fuchsia-200',
+    text: 'text-fuchsia-600',
+    background: 'bg-gradient-to-br from-fuchsia-200 to-fuchsia-400',
+  },
+  {
+    title: 'Why Choose Us ?',
+    description: [
+      ' Team of 10 experienced Data Scientists.',
+      'Delivered projects worth over 50 lakhs within 1.5 years.',
+      '92% of clients renew contracts.',
+      'Offer flexible pricing plans tailored to project needs.',
+      'Expertise in hardware provisioning to algorithm development.',
+    ],
+    image: '/about/about-4.jpg',
+    shadow: 'shadow-teal-200',
+    text: 'text-teal-600',
+    background: 'bg-gradient-to-br from-teal-200 to-teal-400',
+  },
+];
