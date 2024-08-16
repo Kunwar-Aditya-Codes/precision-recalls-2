@@ -1,6 +1,7 @@
 'use client';
 
 import { Quote } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const TESTIMONIALS = [
   {
@@ -37,23 +38,36 @@ const TESTIMONIALS = [
 
 const Testimonials = () => {
   return (
-    <div className='mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 px-4 lg:px-0  gap-4 '>
-      {TESTIMONIALS.map((testimonial, index) => (
-        <div
-          key={index}
-          className='bg-white/15 border-2 border-white/30 text-white p-8 rounded-3xl h-full shadow-2xl '
-        >
-          <div className='italic flex flex-col gap-y-2 h-[80%]'>
-            <Quote className='rotate-180 size-8 fill-white' />
-            <span className='text-balance text-lg tracking-tight'>
-              {testimonial.description}
-            </span>
+    <div className='mt-16  md:[mask-image:linear-gradient(to_right,transparent_0%,black_15%,black_85%,transparent_100%)]'>
+      <motion.div
+        animate={{
+          translateX: '-50%',
+        }}
+        transition={{
+          duration: 15,
+          repeat: Infinity,
+          ease: 'linear',
+          repeatType: 'loop',
+        }}
+        className='flex items-center gap-x-8'
+      >
+        {TESTIMONIALS.map((testimonial, index) => (
+          <div
+            key={index}
+            className='bg-white/15 shrink-0 max-w-[25rem] h-[16rem] border-2 border-white/30 text-white p-8 rounded-3xl  shadow-2xl '
+          >
+            <div className='italic flex flex-col gap-y-2 h-[80%]'>
+              <Quote className='rotate-180 size-8 fill-white' />
+              <span className='text-balance text-lg tracking-tight'>
+                {testimonial.description}
+              </span>
+            </div>
+            <h4 className='text-xl font-bold text-zinc-200 tracking-wide mt-5'>
+              {testimonial.username}
+            </h4>
           </div>
-          <h4 className='text-xl font-bold text-zinc-200 tracking-wide mt-5'>
-            {testimonial.username}
-          </h4>
-        </div>
-      ))}
+        ))}
+      </motion.div>
     </div>
   );
 };

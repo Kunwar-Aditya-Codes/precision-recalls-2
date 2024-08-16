@@ -176,7 +176,7 @@ export default function Home() {
                   className='absolute -skew-x-3 translate top-0 left-0 right-0 bottom-0 bg-white z-[5]'
                 />
               </div>
-              <div className='flex flex-col md:flex-row items-center justify-center gap-x-4 mt-12 gap-y-3'>
+              <div className='flex flex-col md:flex-row items-center justify-center lg:justify-start gap-x-4 mt-12 gap-y-3'>
                 <Link href={'#contact-us'}>
                   <motion.button
                     variants={{
@@ -246,8 +246,8 @@ export default function Home() {
 
       {/* ***************** PROJECTS *********************** */}
       <section id='portfolio' className='md:px-6 overflow-x-hidden'>
-        <div className='bg-gradient-to-b from-sky-600 to-dark-blue pt-6 lg:px-24'>
-          <h2 className=' text-center py-8 mx-auto lg:mx-0 lg:text-start text-4xl lg:text-5xl xl:text-6xl font-bold tracking-wide w-fit text-white'>
+        <div className='bg-gradient-to-b from-sky-600 to-dark-blue pt-10 lg:px-24'>
+          <h2 className=' text-center py-4 px-12  mx-auto lg:mx-0 lg:text-start text-4xl lg:text-5xl xl:text-6xl font-bold border-4 border-white/40 rounded-2xl    w-fit text-white'>
             Featured Project
           </h2>
           <Portfolio />
@@ -266,8 +266,8 @@ export default function Home() {
 
       {/* ***************** TESTIMONIALS *********************** */}
       <section id='testimonials' className='md:px-6 overflow-x-hidden'>
-        <div className='bg-gradient-to-bl from-sky-600 to-dark-blue pt-6 pb-12 lg:px-24'>
-          <h2 className=' text-center py-8 mx-auto lg:mx-0 lg:text-start  text-4xl lg:text-5xl xl:text-6xl font-bold tracking-wide w-fit text-white'>
+        <div className='bg-gradient-to-b from-sky-800 to-dark-blue py-16 lg:px-24'>
+          <h2 className=' text-center py-4 px-12  mx-auto lg:mx-0 lg:text-start text-4xl lg:text-5xl xl:text-6xl font-bold border-4 border-white/40 rounded-2xl   w-fit text-white'>
             What our clients have to say...
           </h2>
 
@@ -278,8 +278,8 @@ export default function Home() {
       {/* ***************** TEAM *********************** */}
       <section id={'team'} className='md:px-6 overflow-x-hidden'>
         <div className='bg-white pt-6 pb-12 lg:px-24'>
-          <h2 className='text-center py-8 mx-auto lg:mx-0 lg:text-start  text-4xl lg:text-5xl xl:text-6xl font-bold tracking-wide w-fit text-transparent bg-clip-text bg-gradient-to-bl from-sky-600 to-dark-blue'>
-            About Us
+          <h2 className='text-center py-8 mx-auto lg:mx-0 lg:text-start  text-4xl lg:text-5xl xl:text-6xl font-bold  w-fit text-transparent bg-clip-text bg-gradient-to-bl from-sky-600 to-dark-blue'>
+            Meet the team
           </h2>
           <Team />
         </div>
@@ -289,9 +289,16 @@ export default function Home() {
       <section id={'contact-us'} className='md:px-6'>
         <div className='flex flex-col md:flex-row justify-around pt-12 md:pt-0 px-8 pb-12 md:rounded-b-[3rem] lg:px-32 xl:px-36 bg-gradient-to-l from-sky-600 to-dark-blue shadow-2xl'>
           <div className=' w-full flex flex-col justify-center gap-y-4 md:gap-y-16  md:flex-[0.6]'>
-            <h3 className='text-3xl text-white lg:text-5xl xl:text-6xl font-bold tracking-wide  text-center md:text-start'>
-              Contact Us
-            </h3>
+            <div>
+              <h3 className='text-3xl text-white lg:text-5xl xl:text-6xl font-bold tracking-wide  text-center md:text-start'>
+                Contact Us
+              </h3>
+
+              <p className='text-white text-xl max-w-sm mt-2'>
+                Have questions? We're here to help. Let's make great things
+                happen!
+              </p>
+            </div>
             <div className='flex flex-col items-center font-light text-white md:items-start gap-y-4 text-xl '>
               <div className='flex items-center gap-x-3'>
                 <span>
@@ -365,7 +372,7 @@ export default function Home() {
               ensure comprehensive support across all your needs.
             </p>
 
-            <div className='flex items-center space-x-6 text-zinc-300 mt-4'>
+            <div className='flex items-center space-x-6 text-zinc-300 mt-4 '>
               <svg
                 xmlns='http://www.w3.org/2000/svg'
                 width='24'
@@ -415,7 +422,7 @@ export default function Home() {
               </svg>
             </div>
           </div>
-          <div className=''>
+          <div className='xl:mr-28'>
             <h3 className='text-lg'>Quick Links</h3>
             <ul className='text-zinc-300  mt-1 flex flex-col gap-y-1'>
               <Link href={'#about'}>
