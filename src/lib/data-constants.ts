@@ -21,41 +21,29 @@ export const PROJECTS = [
   {
     title: 'Face Clustering',
     image: '/projects/face-cluster.webp',
-    description: [
-      'Detects and clusters faces from CCTV footage using advanced computer vision techniques.',
-      'Provides real-time headcount metrics and threat identification for enhanced security.',
-      'Integrates with existing systems for scalable and adaptable monitoring solutions.',
-    ],
+    description:
+      'Uses advanced computer vision techniques to detect and cluster faces from CCTV footage. It provides real-time headcount metrics and identifies potential threats, enhancing security. Seamlessly integrating with existing systems, it offers scalable and adaptable monitoring solutions for improved surveillance and proactive threat management in various environments.',
     client: 'Attain Ai',
   },
   {
     title: 'Activity Classification for Sports Analytics',
     image: '/projects/sports-analysis.webp',
-    description: [
-      'Classifies physical activities by analyzing body posture coordinates from videos.',
-      'Facilitates remote fitness training by providing detailed activity analysis.',
-      'Seamlessly integrates into sports and fitness platforms to enhance user experience.',
-    ],
+    description:
+      'Classifies physical activities by analysing body posture coordinates from videos. This technology enhances remote fitness training by providing detailed activity analysis. Seamlessly integrating into sports and fitness platforms, it boosts user experience and offers precise insights for athletes and fitness enthusiasts.',
     client: 'Timeout',
   },
   {
     title: 'Sales Forecasting Time Series Model',
     image: '/projects/market-analysis.webp',
-    description: [
-      'Develops a time series model for accurate sales forecasting and inventory estimation.',
-      'Optimizes financial planning and resource allocation for FMCG companies and other industries.',
-      'Applicable to various sectors, improving operational efficiency and inventory management.',
-    ],
+    description:
+      'Delivers accurate sales predictions and inventory estimates. By optimising financial planning and resource allocation, it significantly benefits FMCG companies and other industries. This model enhances operational efficiency and inventory management, making it a valuable tool across various sectors.',
     client: '',
   },
   {
     title: 'Personalized E-commerce Recommendation',
     image: '/projects/ecommerce.webp',
-    description: [
-      'Led the creation of a personalized recommendation engine for e-commerce.',
-      'Utilized advanced AI/ML techniques to tailor product suggestions to user preferences.',
-      'Increases user engagement and sales through dynamic recommendations.',
-    ],
+    description:
+      'Engine leverages advanced AI/ML techniques to tailor product suggestions to user preferences. This dynamic system enhances user engagement and boosts sales by delivering personalised recommendations. Experience increased customer satisfaction and improved conversion rates with our cutting-edge recommendation engine designed for e-commerce success.',
     client: '',
   },
 ];
@@ -152,7 +140,7 @@ export const ABOUT_US = [
     image: '/about/about-1.jpg',
     shadow: 'shadow-indigo-200',
     text: 'text-indigo-600',
-    background: 'bg-gradient-to-br from-indigo-200 to-indigo-400',
+    background: 'bg-gradient-to-b from-indigo-700 to-indigo-500',
   },
   {
     title: 'Key Differentiators',
@@ -165,7 +153,7 @@ export const ABOUT_US = [
     image: '/about/about-2.jpg',
     shadow: 'shadow-sky-200',
     text: 'text-sky-600',
-    background: 'bg-gradient-to-br from-sky-200 to-sky-400',
+    background: 'bg-gradient-to-b from-sky-700 to-sky-500',
   },
   {
     title: 'Business Model',
@@ -178,7 +166,7 @@ export const ABOUT_US = [
     image: '/about/about-3.jpg',
     shadow: 'shadow-fuchsia-200',
     text: 'text-fuchsia-600',
-    background: 'bg-gradient-to-br from-fuchsia-200 to-fuchsia-400',
+    background: 'bg-gradient-to-b from-fuchsia-700 to-fuchsia-500',
   },
   {
     title: 'Why Choose Us ?',
@@ -192,6 +180,6 @@ export const ABOUT_US = [
     image: '/about/about-4.jpg',
     shadow: 'shadow-teal-200',
     text: 'text-teal-600',
-    background: 'bg-gradient-to-br from-teal-200 to-teal-400',
+    background: 'bg-gradient-to-b from-teal-700 to-teal-500',
   },
 ];

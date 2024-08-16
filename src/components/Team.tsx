@@ -14,21 +14,20 @@ const getInitials = (name: string) => {
 };
 
 const Team = () => {
-  // TODO: fix description and remove scroll
   return (
-    <div className=' grow max-w-[85rem] w-full justify-items-center  mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  mt-6 gap-6'>
+    <div className=' grow  w-full justify-items-center  mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-4 lg:px-0 mt-4 gap-6'>
       {TEAM.map((member, index) => (
         <div
           key={index}
-          className='w-full h-[16rem] aspect-square bg-white border shadow-md p-6 relative rounded-xl overflow-hidden group'
+          className='w-full h-[16rem] xl:h-[18.5rem] aspect-square bg-gradient-to-b from-indigo-200  to-sky-200 border shadow-md p-6 relative rounded-xl overflow-hidden group'
         >
           <h2 className='text-3xl font-bold'>{member.memberName}</h2>
           <p className='text-zinc-700 mt-2'>{member.position}</p>
-          <div className='translate-y-full overflow-y-scroll bg-white absolute top-0 left-0 right-0 bottom-0 transition-transform group-hover:translate-y-0 z-[1] text-[0.78rem] md:text-sm lg:text-base p-6 tracking-wide border-t-4  border-t-indigo-400 rounded-xl duration-300'>
+          <div className='translate-y-full  bg-white absolute top-0 left-0 right-0 bottom-0 transition-transform group-hover:translate-y-0 z-[1] text-sm md:text-sm lg:text-base p-6 xl:p-3 tracking-wide border-t-4  border-t-sky-600 rounded-xl duration-300'>
             <p className=''>{member.description}</p>
           </div>
           <div className='absolute  -right-[3rem] -bottom-[6.5rem]'>
-            <h3 className='text-[12rem] text-zinc-200'>
+            <h3 className='text-[12rem] text-blue-950/25'>
               {getInitials(member.memberName)}
             </h3>
           </div>

@@ -87,14 +87,14 @@ const TiltCard = ({
         rotateY,
         transformStyle: 'preserve-3d',
       }}
-      className='p-4 bg-white/25  cursor-default  shadow-xl rounded-2xl h-full w-[20rem]'
+      className='p-4 bg-gradient-to-b from-indigo-400 to-sky-400 cursor-default  shadow-xl rounded-2xl h-full w-[20rem]'
     >
       <div
         style={{
           transform: 'translateZ(60px)',
           transformStyle: 'preserve-3d',
         }}
-        className={`bg-white/80  rounded-2xl p-4 h-full w-full`}
+        className={`bg-white   rounded-2xl p-4 h-full w-full`}
       >
         <Image
           style={{

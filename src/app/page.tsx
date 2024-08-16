@@ -3,24 +3,19 @@
 import AboutUs from '@/components/AboutUs';
 import MobileNav from '@/components/MobileNav';
 import Portfolio from '@/components/Portfolio';
+import Team from '@/components/Team';
 import Testimonials from '@/components/Testimonials';
 import TiltCard from '@/components/TiltCard';
-import { COLORS, NAV_ITEMS, SERVICES } from '@/lib/data-constants';
+import { NAV_ITEMS, SERVICES } from '@/lib/data-constants';
 import { cn } from '@/lib/utils';
-import {
-  animate,
-  motion,
-  useMotionTemplate,
-  useMotionValue,
-} from 'framer-motion';
+import emailjs from '@emailjs/browser';
+import { motion } from 'framer-motion';
 import { ArrowRight, ChevronRight, Loader2, Mail, Phone } from 'lucide-react';
 import { Lilita_One } from 'next/font/google';
 import Image from 'next/image';
 import Link from 'next/link';
-import { FormEvent, useEffect, useRef, useState } from 'react';
-import emailjs from '@emailjs/browser';
+import { FormEvent, useRef, useState } from 'react';
 import { toast } from 'sonner';
-import Team from '@/components/Team';
 
 const righteous = Lilita_One({
   weight: ['400'],
@@ -30,18 +25,6 @@ const righteous = Lilita_One({
 export default function Home() {
   const form = useRef<HTMLFormElement | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
-
-  const color = useMotionValue(COLORS[0]);
-  const backgroundImage = useMotionTemplate`radial-gradient(160% 160% at 50% 0% , #020410 50%, ${color})`;
-
-  useEffect(() => {
-    animate(color, COLORS, {
-      ease: 'easeInOut',
-      duration: 10,
-      repeat: Infinity,
-      repeatType: 'mirror',
-    });
-  }, []);
 
   const sendEmail = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -72,135 +55,66 @@ export default function Home() {
   };
 
   return (
-    <main className=' bg-slate-50 '>
+    <main className='bg-slate-200 '>
       {/* ***************** HERO *********************** */}
-
-      <section className=' md:p-6  mt-[4.5rem] lg:mt-0 overflow-x-hidden'>
+      <section className='md:px-6 md:pt-6 mt-[4.5rem] lg:mt-0 overflow-x-hidden'>
         <MobileNav />
-
-        <div className='md:rounded-[3rem] relative shadow  bg-gradient-to-br from-blue-200 to-blue-400 min-h-screen'>
-          <div className=' bg-[url("/rect.svg")] bg-white/50 bg-blend-color  min-h-screen md:rounded-[3rem] bg-center bg-cover p-4'>
-            <div className='relative'>
-              <motion.nav
-                variants={{
-                  hidden: { opacity: 0 },
-                  visible: { opacity: 1 },
-                }}
-                transition={{
-                  duration: 0.5,
-                  delay: 0.25,
-                }}
-                initial='hidden'
-                animate='visible'
-                className='hidden py-6 px-24 lg:flex items-center justify-between'
+        <div className='md:rounded-t-[3rem] flex flex-col relative shadow p-4 bg-gradient-to-br from-sky-600  to-dark-blue pb-16'>
+          <div className='relative '>
+            <motion.nav
+              variants={{
+                hidden: { opacity: 0 },
+                visible: { opacity: 1 },
+              }}
+              transition={{
+                duration: 0.5,
+                delay: 0.25,
+              }}
+              initial='hidden'
+              animate='visible'
+              className='hidden pb-4 pt-2 px-24 lg:flex items-center justify-between border-b rounded-[3rem]'
+            >
+              <h1
+                className={cn(
+                  'text-4xl text-white uppercase tracking-wide',
+                  righteous.className
+                )}
               >
-                <h1
-                  className={cn(
-                    'text-4xl   text-blue-950 uppercase tracking-wide',
-                    righteous.className
-                  )}
-                >
-                  Precision Recalls
-                </h1>
+                Flintz
+              </h1>
 
-                <ul className='flex items-center gap-x-6'>
-                  {NAV_ITEMS.map((item, index) => (
-                    <Link href={item.link} key={index}>
-                      <li className='bg-white/50 text-blue-950 font-medium text-sm px-3 py-1.5 border rounded-full'>
-                        {item.title}
-                      </li>
-                    </Link>
-                  ))}
-                </ul>
-              </motion.nav>
-              <motion.div
-                variants={{
-                  hidden: { left: 0 },
-                  visible: { left: '100%' },
-                }}
-                transition={{
-                  duration: 0.5,
-                  ease: 'easeIn',
-                }}
-                initial='hidden'
-                animate='visible'
-                className='absolute -skew-x-3 translate  top-0 left-0 right-0 bottom-0 bg-blue-950 z-[5]'
-              />
-            </div>
+              <ul className='flex items-center gap-x-6'>
+                {NAV_ITEMS.map((item, index) => (
+                  <Link href={item.link} key={index}>
+                    <li className='text-white font-base text-sm px-3 py-1.5 border border-white/35 rounded-full'>
+                      {item.title}
+                    </li>
+                  </Link>
+                ))}
+              </ul>
+            </motion.nav>
+            <motion.div
+              variants={{
+                hidden: { left: 0 },
+                visible: { left: '100%' },
+              }}
+              transition={{
+                duration: 0.5,
+                ease: 'easeIn',
+              }}
+              initial='hidden'
+              animate='visible'
+              className='absolute md:rounded-[3rem] -skew-x-3 translate top-0 left-0 right-0 bottom-0 bg-white z-[5]'
+            />
+          </div>
 
-            <div className='lg:px-24 flex flex-col gap-y-16 lg:gap-y-0 lg:flex-row items-center lg:gap-x-16 justify-between'>
-              <div className=' max-w-[70rem] '>
-                <div className='relative'>
-                  <motion.h2
-                    variants={{
-                      hidden: { opacity: 0, y: 75 },
-                      visible: { opacity: 1, y: 0 },
-                    }}
-                    transition={{
-                      duration: 0.5,
-                      delay: 0.25,
-                    }}
-                    initial='hidden'
-                    animate='visible'
-                    className={cn(
-                      'text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-blue-950  text-center lg:text-start mt-8 md:mt-16 font-semibold lg:!leading-[5.125rem]'
-                    )}
-                  >
-                    From data to deployment: we drive your success
-                  </motion.h2>
-                  <motion.div
-                    variants={{
-                      hidden: { left: 0 },
-                      visible: { left: '100%' },
-                    }}
-                    transition={{
-                      duration: 0.5,
-                      ease: 'easeIn',
-                    }}
-                    initial='hidden'
-                    animate='visible'
-                    className='absolute -skew-x-3 translate  top-0 left-0 right-0 bottom-0 bg-blue-950 z-[5]'
-                  />
-                </div>
-                <div className='relative'>
-                  <motion.p
-                    variants={{
-                      hidden: { opacity: 0, y: 75 },
-                      visible: { opacity: 1, y: 0 },
-                    }}
-                    transition={{
-                      duration: 0.5,
-                      delay: 0.25,
-                    }}
-                    initial='hidden'
-                    animate='visible'
-                    className='text-center  lg:text-start lg:text-xl tracking-wide mt-8'
-                  >
-                    Precision Recalls offers exceptional services to elevate
-                    your business, specializing in AI/ML, web and app
-                    development, data analytics, digital marketing, software
-                    development, and e-commerce setup. We ensure comprehensive
-                    support across all your needs.
-                  </motion.p>
-                  <motion.div
-                    variants={{
-                      hidden: { left: 0 },
-                      visible: { left: '100%' },
-                    }}
-                    transition={{
-                      duration: 0.5,
-                      ease: 'easeIn',
-                    }}
-                    initial='hidden'
-                    animate='visible'
-                    className='absolute -skew-x-3 translate top-0 left-0 right-0 bottom-0 bg-blue-950 z-[5]'
-                  />
-                </div>
-
-                <motion.button
+          <div className='lg:px-24 grow flex flex-col gap-y-16 lg:gap-y-0 lg:flex-row items-center lg:gap-x-16 justify-between'>
+            <div className=' max-w-[70rem] '>
+              <div className='relative'>
+                <motion.h2
                   variants={{
-                    hidden: { opacity: 0 },
-                    visible: { opacity: 1 },
+                    hidden: { opacity: 0, y: 75 },
+                    visible: { opacity: 1, y: 0 },
                   }}
                   transition={{
                     duration: 0.5,
@@ -208,36 +122,121 @@ export default function Home() {
                   }}
                   initial='hidden'
                   animate='visible'
-                  className='gap-x-2 flex items-center mx-auto lg:mx-0 mt-12 text-blue-950  text-lg bg-white pl-1.5 pr-3 py-2 rounded-full'
+                  className={cn(
+                    'text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-white  text-center lg:text-start mt-8 md:mt-16 font-semibold lg:!leading-[5.125rem]'
+                  )}
                 >
-                  <ArrowRight className='size-8 bg-blue-200 rounded-full p-1.5' />{' '}
-                  Read More
-                </motion.button>
+                  Smart Solutions, Real Results
+                </motion.h2>
+                <motion.div
+                  variants={{
+                    hidden: { left: 0 },
+                    visible: { left: '100%' },
+                  }}
+                  transition={{
+                    duration: 0.5,
+                    ease: 'easeIn',
+                  }}
+                  initial='hidden'
+                  animate='visible'
+                  className='absolute -skew-x-3 translate  top-0 left-0 right-0 bottom-0 bg-white z-[5]'
+                />
               </div>
-              <Image
-                src={'/hero2.png'}
-                alt='skills'
-                width={500}
-                height={500}
-                className='lg:scale-90 xl:scale-100'
-              />
+              <div className='relative'>
+                <motion.p
+                  variants={{
+                    hidden: { opacity: 0, y: 75 },
+                    visible: { opacity: 1, y: 0 },
+                  }}
+                  transition={{
+                    duration: 0.5,
+                    delay: 0.25,
+                  }}
+                  initial='hidden'
+                  animate='visible'
+                  className='text-center text-zinc-100  lg:text-start lg:text-xl tracking-wide mt-8'
+                >
+                  Flintz offers exceptional services to elevate your business,
+                  specializing in AI/ML, web and app development, data
+                  analytics, digital marketing, software development, and
+                  e-commerce setup. We ensure comprehensive support across all
+                  your needs.
+                </motion.p>
+                <motion.div
+                  variants={{
+                    hidden: { left: 0 },
+                    visible: { left: '100%' },
+                  }}
+                  transition={{
+                    duration: 0.5,
+                    ease: 'easeIn',
+                  }}
+                  initial='hidden'
+                  animate='visible'
+                  className='absolute -skew-x-3 translate top-0 left-0 right-0 bottom-0 bg-white z-[5]'
+                />
+              </div>
+              <div className='flex flex-col md:flex-row items-center justify-center gap-x-4 mt-12 gap-y-3'>
+                <Link href={'#contact-us'}>
+                  <motion.button
+                    variants={{
+                      hidden: { opacity: 0 },
+                      visible: { opacity: 1 },
+                    }}
+                    transition={{
+                      duration: 0.5,
+                      delay: 0.25,
+                    }}
+                    initial='hidden'
+                    animate='visible'
+                    className='gap-x-2 flex items-center mx-auto lg:mx-0  text-blue-950  text-lg bg-white pl-1.5 pr-3 py-2 rounded-full w-[15rem] md:w-fit'
+                  >
+                    <ArrowRight className='size-8 bg-sky-200 rounded-full p-1.5' />{' '}
+                    Book an appointment
+                  </motion.button>
+                </Link>
+                <Link href={'#about'}>
+                  <motion.button
+                    variants={{
+                      hidden: { opacity: 0 },
+                      visible: { opacity: 1 },
+                    }}
+                    transition={{
+                      duration: 0.5,
+                      delay: 0.25,
+                    }}
+                    initial='hidden'
+                    animate='visible'
+                    className='gap-x-2 flex items-center mx-auto lg:mx-0 w-[15rem] justify-center text-lg  text-white px-4  border-2 shadow-inner py-2  rounded-full md:w-fit'
+                  >
+                    Read More
+                  </motion.button>
+                </Link>
+              </div>
             </div>
+            <Image
+              src={'/hero3.png'}
+              alt='skills'
+              priority={true}
+              width={500}
+              height={500}
+              className='lg:scale-90 xl:scale-100 object-cover shrink-0'
+            />
           </div>
         </div>
       </section>
 
       {/* ***************** SERVICES *********************** */}
-
-      <section id='services' className=' md:p-6 mt-1 overflow-x-hidden'>
-        <div className='flex flex-col gap-y-8   py-12 lg:px-10 xl:px-16 md:rounded-[3rem] bg-gradient-to-r from-blue-200 to-blue-100  w-full '>
+      <section id='services' className=' md:px-6 overflow-x-hidden '>
+        <div className='flex flex-col gap-y-8 bg-white py-12 lg:px-24   w-full '>
           <h2
             className={cn(
-              ' text-blue-950 text-center text-2xl lg:text-4xl xl:text-5xl xl:text-start  tracking-wide font-black uppercase gap-x-2 xl:flex-col xl:gap-y-4'
+              'text-transparent bg-clip-text bg-gradient-to-br from-sky-600 to-dark-blue text-center lg:text-start text-4xl lg:text-5xl xl:text-6xl  tracking-wide font-black  gap-x-2 xl:flex-col xl:gap-y-4'
             )}
           >
             Services We Provide
           </h2>
-          <div className='grow grid w-full grid-cols-1  sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-12  '>
+          <div className='grow grid justify-items-center lg:justify-items-start w-full grid-cols-1  sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-12 mt-4 '>
             {SERVICES.map((service, index) => (
               <TiltCard key={index} service={service} index={index} />
             ))}
@@ -246,10 +245,9 @@ export default function Home() {
       </section>
 
       {/* ***************** PROJECTS *********************** */}
-
-      <section id='portfolio' className='md:p-6 overflow-hidden'>
-        <div className='md:rounded-[3rem] bg-gradient-to-b from-sky-200 to-blue-400 pt-6'>
-          <h2 className='px-16 text-center py-8 mx-auto md:mx-0 md:text-start text-4xl lg:text-5xl xl:text-6xl font-bold tracking-wide w-fit text-blue-950'>
+      <section id='portfolio' className='md:px-6 overflow-x-hidden'>
+        <div className='bg-gradient-to-b from-sky-600 to-dark-blue pt-6 lg:px-24'>
+          <h2 className=' text-center py-8 mx-auto lg:mx-0 lg:text-start text-4xl lg:text-5xl xl:text-6xl font-bold tracking-wide w-fit text-white'>
             Featured Project
           </h2>
           <Portfolio />
@@ -257,52 +255,44 @@ export default function Home() {
       </section>
 
       {/* ***************** ABOUT *********************** */}
-
-      <section
-        id={'about'}
-        className='overflow-x-hidden min-h-screen flex flex-col pb-12'
-      >
-        <h2 className='text-center mx-auto text-blue-950 text-4xl lg:text-5xl xl:text-6xl font-bold w-fit  uppercase mt-8 mb-10'>
-          About
-        </h2>
-        <AboutUs />
+      <section id='about' className='md:px-6 overflow-x-hidden '>
+        <div className='bg-white pt-6 pb-12  lg:px-24'>
+          <h2 className='text-center py-8 mx-auto lg:mx-0 lg:text-start  text-4xl lg:text-5xl xl:text-6xl font-bold tracking-wide w-fit text-transparent bg-clip-text bg-gradient-to-b from-sky-600  to-dark-blue'>
+            About Us
+          </h2>
+          <AboutUs />
+        </div>
       </section>
 
       {/* ***************** TESTIMONIALS *********************** */}
-
-      <motion.section
-        style={{
-          backgroundImage,
-        }}
-        className=' h-[calc(100vh-4rem)]'
-      >
-        <div className='py-8 rounded-[3rem] w-full h-full flex flex-col justify-center gap-y-28 '>
-          <h3 className='px-6 text-center text-zinc-300  w-fit mx-auto text-3xl md:text-5xl font-bold tracking-tight'>
+      <section id='testimonials' className='md:px-6 overflow-x-hidden'>
+        <div className='bg-gradient-to-bl from-sky-600 to-dark-blue pt-6 pb-12 lg:px-24'>
+          <h2 className=' text-center py-8 mx-auto lg:mx-0 lg:text-start  text-4xl lg:text-5xl xl:text-6xl font-bold tracking-wide w-fit text-white'>
             What our clients have to say...
-          </h3>
+          </h2>
+
           <Testimonials />
         </div>
-      </motion.section>
+      </section>
 
       {/* ***************** TEAM *********************** */}
-      <section
-        id={'team'}
-        className='overflow-x-hidden min-h-screen flex flex-col pb-12 pt-16 bg-gradient-to-b from-white to-zinc-100'
-      >
-        <h2 className='text-center mx-auto text-white bg-gradient-to-br from-indigo-400 to-cyan-400 px-3 py-1.5 -skew-x-6 rounded-sm  text-4xl lg:text-5xl xl:text-6xl font-bold w-fit  uppercase mt-8 mb-10'>
-          Meet our team
-        </h2>
-        <Team />
+      <section className='md:px-6 overflow-x-hidden'>
+        <div className='bg-white pt-6 pb-12 lg:px-24'>
+          <h2 className='text-center py-8 mx-auto lg:mx-0 lg:text-start  text-4xl lg:text-5xl xl:text-6xl font-bold tracking-wide w-fit text-transparent bg-clip-text bg-gradient-to-bl from-sky-600 to-dark-blue'>
+            About Us
+          </h2>
+          <Team />
+        </div>
       </section>
 
       {/* ***************** CONTACT *********************** */}
-      <section id={'contact-us'} className=' md:p-6 '>
-        <div className='flex flex-col md:flex-row justify-around text-black px-8 py-12 md:rounded-[3rem] lg:px-32 xl:px-36'>
+      <section id={'contact-us'} className='md:px-6'>
+        <div className='flex flex-col md:flex-row justify-around pt-12 md:pt-0 px-8 pb-12 md:rounded-b-[3rem] lg:px-32 xl:px-36 bg-gradient-to-l from-sky-600 to-dark-blue shadow-2xl'>
           <div className=' w-full flex flex-col justify-center gap-y-4 md:gap-y-16  md:flex-[0.6]'>
-            <h3 className='text-3xl text-blue-950 lg:text-5xl xl:text-6xl font-bold tracking-wide  text-center md:text-start'>
+            <h3 className='text-3xl text-white lg:text-5xl xl:text-6xl font-bold tracking-wide  text-center md:text-start'>
               Contact Us
             </h3>
-            <div className='flex flex-col items-center font-light md:items-start gap-y-4 text-xl '>
+            <div className='flex flex-col items-center font-light text-white md:items-start gap-y-4 text-xl '>
               <div className='flex items-center gap-x-3'>
                 <span>
                   <Mail className='size-5' />
@@ -321,36 +311,36 @@ export default function Home() {
             <form
               ref={form}
               onSubmit={sendEmail}
-              className='flex flex-col gap-y-6 w-full  p-8 rounded-lg bg-white '
+              className='flex flex-col gap-y-6 w-full   p-8 rounded-lg bg-white'
             >
               <input
                 type='text'
                 placeholder='Your name'
                 name='user_name'
-                className='p-2 rounded-md  placeholder:text-zinc-600 focus-visible:outline-none focus-visible:border-violet-500 border-2 border-violet-200   '
+                className='p-2 rounded-md  placeholder:text-zinc-600 focus-visible:outline-none focus-visible:border-sky-600 border-2 border-zinc-200   '
               />
               <input
                 placeholder='Email'
                 type='text'
                 name='user_email'
-                className='p-2 rounded-md  placeholder:text-zinc-600 focus-visible:outline-none focus-visible:border-violet-500 border-2 border-violet-200   '
+                className='p-2 rounded-md  placeholder:text-zinc-600 focus-visible:outline-none focus-visible:border-sky-600 border-2 border-zinc-200   '
               />
               <input
                 type='number'
                 pattern='\d{10}'
                 name='user_contact'
                 placeholder='Phone number'
-                className='p-2 rounded-md  placeholder:text-zinc-600 focus-visible:outline-none focus-visible:border-violet-500 border-2 border-violet-200   '
+                className='p-2 rounded-md  placeholder:text-zinc-600 focus-visible:outline-none focus-visible:border-sky-600 border-2 border-zinc-200   '
               />
               <textarea
                 placeholder='Type your message here...'
                 rows={7}
                 name='message'
-                className='p-2 rounded-md  placeholder:text-zinc-600 focus-visible:outline-none focus-visible:border-violet-500 border-2 border-violet-200   '
+                className='p-2 rounded-md  placeholder:text-zinc-600 focus-visible:outline-none focus-visible:border-sky-600 border-2 border-zinc-200   '
               />
               <button
                 disabled={loading}
-                className='bg-violet-700 text-white p-2 rounded-md  font-medium uppercase tracking-wide'
+                className='bg-sky-900 text-white p-2 rounded-md  font-medium uppercase tracking-wide'
               >
                 {loading ? (
                   <Loader2 className='size-5 animate-spin mx-auto' />
@@ -364,7 +354,7 @@ export default function Home() {
       </section>
 
       {/* ***************** FOOTER ***********************  */}
-      <footer className='bg-[#020410] pt-12'>
+      <footer className='bg-[#020410] pt-12  lg:mt-16'>
         <div className='max-w-7xl mx-auto pb-12 text-white flex flex-col md:flex-row gap-y-16 md:gap-y-0 items-start justify-between px-6'>
           <div>
             <h3 className='text-2xl font-semibold tracking-tight'>

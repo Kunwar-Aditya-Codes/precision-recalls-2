@@ -4,20 +4,20 @@ import { PROJECTS } from '@/lib/data-constants';
 
 const Portfolio = () => {
   return (
-    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-12 justify-items-center pb-8 mt-4'>
+    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4 lg:px-0  justify-items-center pb-12  mt-4'>
       {PROJECTS.map((project, index) => (
         <div
           key={index}
           style={{
             backgroundImage: `url(${project.image})`,
           }}
-          className='rounded-2xl bg-black/80 border border-zinc-800 bg-blend-color bg-cover bg-center backdrop-blur-md aspect-auto px-6 py-6 h-[28rem] flex flex-col  gap-y-10'
+          className='rounded-2xl bg-black/80 border border-zinc-800 bg-blend-color bg-cover bg-center backdrop-blur-md aspect-auto px-6 py-6 xl:h-[28rem] flex flex-col  gap-y-10'
         >
           <h1 className='text-2xl md:text-3xl font-bold text-white'>
             {project.title}
           </h1>
 
-          <p className='text-zinc-200 md:text-lg  text-balance '>
+          <p className='text-zinc-200 text-justify text-balance '>
             {project.description}
           </p>
           {project.client.length > 0 && (
