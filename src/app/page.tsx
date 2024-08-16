@@ -276,7 +276,7 @@ export default function Home() {
       </section>
 
       {/* ***************** TEAM *********************** */}
-      <section className='md:px-6 overflow-x-hidden'>
+      <section id={'team'} className='md:px-6 overflow-x-hidden'>
         <div className='bg-white pt-6 pb-12 lg:px-24'>
           <h2 className='text-center py-8 mx-auto lg:mx-0 lg:text-start  text-4xl lg:text-5xl xl:text-6xl font-bold tracking-wide w-fit text-transparent bg-clip-text bg-gradient-to-bl from-sky-600 to-dark-blue'>
             About Us
@@ -357,14 +357,12 @@ export default function Home() {
       <footer className='bg-[#020410] pt-12  lg:mt-16'>
         <div className='max-w-7xl mx-auto pb-12 text-white flex flex-col md:flex-row gap-y-16 md:gap-y-0 items-start justify-between px-6'>
           <div>
-            <h3 className='text-2xl font-semibold tracking-tight'>
-              Precision Recalls
-            </h3>
+            <h3 className='text-2xl font-semibold tracking-tight'>Flintz</h3>
             <p className='text-zinc-300 mt-4 max-w-[35rem]'>
-              Precision Recalls offers exceptional services to elevate your
-              business, specializing in AI/ML, web and app development, data
-              analytics, digital marketing, software development, and e-commerce
-              setup. We ensure comprehensive support across all your needs.
+              Flintz offers exceptional services to elevate your business,
+              specializing in AI/ML, web and app development, data analytics,
+              digital marketing, software development, and e-commerce setup. We
+              ensure comprehensive support across all your needs.
             </p>
 
             <div className='flex items-center space-x-6 text-zinc-300 mt-4'>
@@ -420,32 +418,41 @@ export default function Home() {
           <div className=''>
             <h3 className='text-lg'>Quick Links</h3>
             <ul className='text-zinc-300  mt-1 flex flex-col gap-y-1'>
-              <li className='flex items-center gap-x-1  hover:text-zinc-100'>
-                <ChevronRight className='size-4' />
-                About Us
-              </li>
-              <li className='flex items-center gap-x-1 hover:text-zinc-100'>
-                <ChevronRight className='size-4' />
-                Portfolio
-              </li>
-              <li className='flex items-center gap-x-1 hover:text-zinc-100'>
-                <ChevronRight className='size-4' />
-                Testimonials
-              </li>
-              <li className='flex items-center gap-x-1 hover:text-zinc-100'>
-                <ChevronRight className='size-4' />
-                Contact Us
-              </li>
-              <li className='flex items-center gap-x-1 hover:text-zinc-100'>
-                <ChevronRight className='size-4' />
-                Privacy Policy
-              </li>
+              <Link href={'#about'}>
+                <li className='flex items-center gap-x-1  hover:text-zinc-100'>
+                  <ChevronRight className='size-4' />
+                  About Us
+                </li>
+              </Link>
+              <Link href={'#portfolio'}>
+                <li className='flex items-center gap-x-1 hover:text-zinc-100'>
+                  <ChevronRight className='size-4' />
+                  Portfolio
+                </li>
+              </Link>
+              <Link href={'#testimonials'}>
+                <li className='flex items-center gap-x-1 hover:text-zinc-100'>
+                  <ChevronRight className='size-4' />
+                  Testimonials
+                </li>
+              </Link>
+              <Link href={'#contact-us'}>
+                <li className='flex items-center gap-x-1 hover:text-zinc-100'>
+                  <ChevronRight className='size-4' />
+                  Contact Us
+                </li>
+              </Link>
+              <Link href={'#team'}>
+                <li className='flex items-center gap-x-1 hover:text-zinc-100'>
+                  <ChevronRight className='size-4' />
+                  Team
+                </li>
+              </Link>
             </ul>
           </div>
         </div>
         <p className='border-t text-center text-white font-medium text-sm  py-4'>
-          &copy; {new Date().getFullYear()} Precision Recalls. All rights
-          reserved.
+          &copy; {new Date().getFullYear()} Flintz. All rights reserved.
         </p>
       </footer>
     </main>
