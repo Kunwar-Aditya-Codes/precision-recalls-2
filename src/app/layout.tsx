@@ -3,17 +3,14 @@ import { Roboto } from 'next/font/google';
 import { Toaster } from '@/components/ui/sonner';
 
 import './globals.css';
+import { constructMetadata } from '@/lib/utils';
 
 const inter = Roboto({
   subsets: ['latin-ext'],
   weight: ['100', '300', '400', '500', '700', '900'],
 });
 
-export const metadata: Metadata = {
-  title: 'Flintz',
-  description:
-    'Flintz offers exceptional services to elevate your business, specializing in AI/ML, web and app development, data analytics, digital marketing, software development, and e-commerce setup. We ensure comprehensive support across all your needs.',
-};
+export const metadata = constructMetadata();
 
 export default function RootLayout({
   children,
