@@ -116,7 +116,7 @@ export const TEAM = [
     position: 'Data Scientist/Software Developer',
 
     description:
-      'Garv Agarwal is a skilled data scientist and software developer specializing in AI, Data Science, and Machine Learning. With hands-on experience in AI-driven applications and complex machine learning models, he combines technical expertise with deep data analysis skills. Proficient in Python, SQL, cloud computing, and advanced deep learning frameworks, Garv excels at creating innovative solutions for complex challenges. His dedication to continuous learning and excellence makes him a valuable asset in advancing technology.',
+      'Skilled data scientist and software developer with a strong focus on AI, Data Science, and Machine Learning. I have hands-on experience building AI-driven applications and working with complex machine learning models. I’m proficient in Python, SQL, cloud computing, and advanced deep learning frameworks, and I enjoy creating innovative solutions to tackle challenging problems. My passion for continuous learning and dedication to excellence drive me to push the boundaries of technology.',
   },
 ];
 

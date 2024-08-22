@@ -90,7 +90,10 @@ const Page = () => {
       <footer className='bg-[#020410] pt-12  lg:mt-16'>
         <div className='max-w-7xl mx-auto pb-12 text-white flex flex-col md:flex-row gap-y-16 md:gap-y-0 items-start justify-between px-6'>
           <div>
-            <h3 className='text-2xl font-semibold tracking-tight'>Flintz</h3>
+            <div className='flex items-center gap-x-2'>
+              <img src='/t-logo.png' className='size-8' />
+              <h3 className='text-2xl font-semibold tracking-tight'>Flintz</h3>
+            </div>
             <p className='text-zinc-300 mt-4 max-w-[35rem]'>
               Transform your business with solutions that work. From AI to web
               development, Flintz is your go-to partner for success. Connect

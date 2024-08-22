@@ -17,7 +17,6 @@ const Portfolio = () => {
           align: 'start',
           dragFree: true,
         }}
-        className=' '
       >
         <CarouselContent className='mx-1 gap-x-4 pr-8'>
           {PROJECTS.map((project, index) => (

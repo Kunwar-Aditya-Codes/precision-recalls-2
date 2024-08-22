@@ -23,10 +23,10 @@ const Team = () => {
         >
           <h2 className='text-3xl font-bold'>{member.memberName}</h2>
           <p className='text-zinc-700 mt-2'>{member.position}</p>
-          <div className='translate-y-full  bg-white absolute top-0 left-0 right-0 bottom-0 transition-transform group-hover:translate-y-0 z-[1] text-sm md:text-base  xl:text-base lg:p-3 p-6 xl:p-3 tracking-wide border-t-4  border-t-sky-600 rounded-xl duration-300'>
+          <div className='translate-y-full  bg-white absolute top-0 left-0 right-0 bottom-0 transition-transform group-hover:translate-y-0 z-[1] text-[0.8rem] sm:text-sm md:text-base  xl:text-base lg:p-3 p-6 xl:p-3 tracking-wide border-t-4  border-t-sky-600 rounded-xl duration-300'>
             <p className=''>{member.description}</p>
           </div>
-          <div className='absolute  -right-[3rem] -bottom-[6.5rem]'>
+          <div className='absolute -right-[3rem] -bottom-[6.5rem]'>
             <h3 className='text-[12rem] text-blue-950/25'>
               {getInitials(member.memberName)}
             </h3>

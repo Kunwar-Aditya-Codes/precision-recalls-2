@@ -308,7 +308,7 @@ export default function Home() {
       <section id='portfolio' className='md:px-6 overflow-x-hidden'>
         <div className='bg-gradient-to-b from-sky-600 to-dark-blue pt-10 lg:px-24'>
           <h2 className=' text-center py-4 px-12  mx-auto lg:mx-0 lg:text-start text-4xl lg:text-5xl xl:text-6xl font-bold border-4 border-white/40 rounded-2xl    w-fit text-white'>
-            Featured Project
+            Featured Projects
           </h2>
           <Portfolio />
         </div>
