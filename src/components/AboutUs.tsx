@@ -2,8 +2,7 @@
 
 import { ABOUT_US } from '@/lib/data-constants';
 import { cn } from '@/lib/utils';
-import { ArrowRight, Sparkles } from 'lucide-react';
-import Image from 'next/image';
+import { Sparkles } from 'lucide-react';
 
 const AboutUs = () => {
   return (
@@ -12,11 +11,11 @@ const AboutUs = () => {
         <div
           key={index}
           className={cn(
-            ' mx-auto md:w-full relative group shadow-2xl  rounded-[2rem]  overflow-hidden p-6',
+            ' mx-auto md:w-full relative group shadow-2xl rounded-[2rem] overflow-hidden p-6',
             item.shadow
           )}
         >
-          <Image
+          <img
             src={item.image}
             width={500}
             height={500}
@@ -25,7 +24,7 @@ const AboutUs = () => {
           />
           <h2
             className={cn(
-              'text-center  text-xl mt-4 font-bold uppercase tracking-wider',
+              'text-center text-xl mt-4 font-bold uppercase tracking-wider',
               item.text
             )}
           >

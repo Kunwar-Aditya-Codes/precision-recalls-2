@@ -10,7 +10,14 @@ import { NAV_ITEMS, SERVICES } from '@/lib/data-constants';
 import { cn } from '@/lib/utils';
 import emailjs from '@emailjs/browser';
 import { motion } from 'framer-motion';
-import { ArrowRight, ChevronRight, Loader2, Mail, Phone } from 'lucide-react';
+import {
+  ArrowRight,
+  ChevronRight,
+  Loader2,
+  Mail,
+  Phone,
+  X,
+} from 'lucide-react';
 import { Lilita_One } from 'next/font/google';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -25,6 +32,7 @@ const righteous = Lilita_One({
 export default function Home() {
   const form = useRef<HTMLFormElement | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
+  const [ctaOpen, setCtaOpen] = useState<boolean>(true);
 
   const sendEmail = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -56,11 +64,60 @@ export default function Home() {
 
   return (
     <main className='bg-slate-200 '>
+      {ctaOpen && (
+        <div className='h-screen w-screen fixed z-[80] bg-white/85 flex items-center justify-center'>
+          <div className='bg-dark-blue p-4 rounded-2xl w-[26rem] relative'>
+            <X
+              onClick={() => setCtaOpen(false)}
+              className='text-white cursor-pointer size-6 p-1 absolute right-4 top-4 border rounded-full'
+            />
+            <h2 className='text-white  text-center text-2xl mt-6'>
+              Book a free consultation
+            </h2>
+            <form className='flex flex-col items-center gap-y-2 px-4 my-4'>
+              <input
+                type='text'
+                placeholder='Your name'
+                name='user_name'
+                className='p-2 w-full rounded-md  placeholder:text-zinc-600 focus-visible:outline-none focus-visible:border-sky-600 border-2 border-zinc-200   '
+              />
+              <input
+                placeholder='Email'
+                type='text'
+                name='user_email'
+                className='p-2 rounded-md  placeholder:text-zinc-600 focus-visible:outline-none focus-visible:border-sky-600 border-2 border-zinc-200  w-full '
+              />
+              <input
+                type='number'
+                pattern='\d{10}'
+                name='user_contact'
+                placeholder='Phone number'
+                className='p-2 rounded-md  placeholder:text-zinc-600 focus-visible:outline-none focus-visible:border-sky-600 border-2 border-zinc-200  w-full '
+              />
+              <textarea
+                placeholder='Type your message here...'
+                name='message'
+                className='hidden'
+              />
+              <button
+                disabled={loading}
+                className='bg-white text-dark-blue p-2 rounded-md w-full font-medium uppercase tracking-wide'
+              >
+                {loading ? (
+                  <Loader2 className='size-5 animate-spin mx-auto' />
+                ) : (
+                  'Submit form'
+                )}
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
       {/* ***************** HERO *********************** */}
       <section className='md:px-6 md:pt-6 mt-[4.5rem] lg:mt-0 overflow-x-hidden'>
         <MobileNav />
         <div className='md:rounded-t-[3rem] flex flex-col relative shadow p-4 bg-gradient-to-br from-sky-600  to-dark-blue pb-16'>
-          <div className='relative '>
+          <div className='relative bg-[#001532] md:py-4 rounded-[3rem]'>
             <motion.nav
               variants={{
                 hidden: { opacity: 0 },
@@ -72,16 +129,19 @@ export default function Home() {
               }}
               initial='hidden'
               animate='visible'
-              className='hidden pb-4 pt-2 px-24 lg:flex items-center justify-between border-b rounded-[3rem]'
+              className='hidden  px-24 lg:flex items-center justify-between rounded-[3rem]'
             >
-              <h1
-                className={cn(
-                  'text-4xl text-white uppercase tracking-wide',
-                  righteous.className
-                )}
-              >
-                Flintz
-              </h1>
+              <div className='flex items-center gap-x-3'>
+                <img src='/logo-2.jpg' className='size-10' />
+                <h1
+                  className={cn(
+                    'text-4xl text-white uppercase tracking-wide',
+                    righteous.className
+                  )}
+                >
+                  Flintz
+                </h1>
+              </div>
 
               <ul className='flex items-center gap-x-6'>
                 {NAV_ITEMS.map((item, index) => (
@@ -215,9 +275,9 @@ export default function Home() {
               </div>
             </div>
             <Image
-              src={'/hero3.png'}
-              alt='skills'
+              src={'/hero3.webp'}
               priority={true}
+              alt='skills'
               width={500}
               height={500}
               className='lg:scale-90 xl:scale-100 object-cover shrink-0'
@@ -257,7 +317,7 @@ export default function Home() {
       {/* ***************** ABOUT *********************** */}
       <section id='about' className='md:px-6 overflow-x-hidden '>
         <div className='bg-white pt-6 pb-12  lg:px-24'>
-          <h2 className='text-center py-8 mx-auto lg:mx-0 lg:text-start  text-4xl lg:text-5xl xl:text-6xl font-bold tracking-wide w-fit text-transparent bg-clip-text bg-gradient-to-b from-sky-600  to-dark-blue'>
+          <h2 className='text-center py-8 mx-auto lg:mx-0 lg:text-start  text-4xl lg:text-5xl xl:text-6xl font-bold tracking-wide w-fit text-transparent bg-clip-text bg-gradient-to-b from-sky-600 to-dark-blue'>
             About Us
           </h2>
           <AboutUs />
@@ -287,16 +347,16 @@ export default function Home() {
 
       {/* ***************** CONTACT *********************** */}
       <section id={'contact-us'} className='md:px-6'>
-        <div className='flex flex-col md:flex-row justify-around pt-12 md:pt-0 px-8 pb-12 md:rounded-b-[3rem] lg:px-32 xl:px-36 bg-gradient-to-l from-sky-600 to-dark-blue shadow-2xl'>
+        <div className='flex flex-col md:flex-row justify-around pt-12  md:py-4 px-8 md:rounded-b-[3rem] lg:px-32 xl:px-36 bg-gradient-to-l from-sky-600 to-dark-blue shadow-2xl'>
           <div className=' w-full flex flex-col justify-center gap-y-4 md:gap-y-16  md:flex-[0.6]'>
             <div>
               <h3 className='text-3xl text-white lg:text-5xl xl:text-6xl font-bold tracking-wide  text-center md:text-start'>
                 Contact Us
               </h3>
 
-              <p className='text-white text-xl max-w-sm mt-2'>
-                Have questions? We're here to help. Let's make great things
-                happen!
+              <p className='text-white text-center md:text-start text-xl max-w-sm mx-auto md:mx-0 mt-2'>
+                Have questions? We&apos;re here to help. Let&apos;s make great
+                things happen!
               </p>
             </div>
             <div className='flex flex-col items-center font-light text-white md:items-start gap-y-4 text-xl '>
@@ -304,17 +364,17 @@ export default function Home() {
                 <span>
                   <Mail className='size-5' />
                 </span>
-                <span>test@email.com</span>
+                <span>contact@flintz.in</span>
               </div>
               <div className='flex items-center gap-x-3'>
                 <span>
                   <Phone className='size-5' />
                 </span>
-                <span>+91 123123123123</span>
+                <span>+91 9529655296</span>
               </div>
             </div>
           </div>
-          <div className='md:flex-[0.5] mt-16 shadow-xl rounded-lg'>
+          <div className='md:flex-[0.5] mt-8 md:mt-0  shadow-xl rounded-lg'>
             <form
               ref={form}
               onSubmit={sendEmail}
@@ -364,31 +424,41 @@ export default function Home() {
       <footer className='bg-[#020410] pt-12  lg:mt-16'>
         <div className='max-w-7xl mx-auto pb-12 text-white flex flex-col md:flex-row gap-y-16 md:gap-y-0 items-start justify-between px-6'>
           <div>
-            <h3 className='text-2xl font-semibold tracking-tight'>Flintz</h3>
+            <div className='flex items-center gap-x-2'>
+              <img src='/t-logo.png' className='size-8' />
+              <h3 className='text-2xl font-semibold tracking-tight'>Flintz</h3>
+            </div>
             <p className='text-zinc-300 mt-4 max-w-[35rem]'>
-              Flintz offers exceptional services to elevate your business,
-              specializing in AI/ML, web and app development, data analytics,
-              digital marketing, software development, and e-commerce setup. We
-              ensure comprehensive support across all your needs.
+              Transform your business with solutions that work. From AI to web
+              development, Flintz is your go-to partner for success. Connect
+              with us today and let&apos;s create something extraordinary!
             </p>
 
             <div className='flex items-center space-x-6 text-zinc-300 mt-4 '>
-              <svg
-                xmlns='http://www.w3.org/2000/svg'
-                width='24'
-                height='24'
-                viewBox='0 0 24 24'
-                fill='none'
-                stroke='currentColor'
-                strokeWidth='2'
-                strokeLinecap='round'
-                strokeLinejoin='round'
-                className='lucide lucide-instagram hover:text-zinc-100'
+              <Link
+                href={
+                  'https://www.instagram.com/flintz_?igsh=MTdtaG9qd3phajgxbg=='
+                }
+                target='_blank'
+                rel='noopener noreferrer'
               >
-                <rect width='20' height='20' x='2' y='2' rx='5' ry='5' />
-                <path d='M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z' />
-                <line x1='17.5' x2='17.51' y1='6.5' y2='6.5' />
-              </svg>
+                <svg
+                  xmlns='http://www.w3.org/2000/svg'
+                  width='24'
+                  height='24'
+                  viewBox='0 0 24 24'
+                  fill='none'
+                  stroke='currentColor'
+                  strokeWidth='2'
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
+                  className='lucide lucide-instagram hover:text-zinc-100'
+                >
+                  <rect width='20' height='20' x='2' y='2' rx='5' ry='5' />
+                  <path d='M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z' />
+                  <line x1='17.5' x2='17.51' y1='6.5' y2='6.5' />
+                </svg>
+              </Link>
               <svg
                 xmlns='http://www.w3.org/2000/svg'
                 width='24'
@@ -403,23 +473,30 @@ export default function Home() {
               >
                 <path d='M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z' />
               </svg>
-
-              <svg
-                xmlns='http://www.w3.org/2000/svg'
-                width='24'
-                height='24'
-                viewBox='0 0 24 24'
-                fill='none'
-                stroke='currentColor'
-                strokeWidth='2'
-                strokeLinecap='round'
-                strokeLinejoin='round'
-                className='lucide lucide-linkedin hover:text-zinc-100'
+              <Link
+                href={
+                  'https://www.linkedin.com/company/104907934/admin/dashboard/'
+                }
+                target='_blank'
+                rel='noopener noreferrer'
               >
-                <path d='M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z' />
-                <rect width='4' height='12' x='2' y='9' />
-                <circle cx='4' cy='4' r='2' />
-              </svg>
+                <svg
+                  xmlns='http://www.w3.org/2000/svg'
+                  width='24'
+                  height='24'
+                  viewBox='0 0 24 24'
+                  fill='none'
+                  stroke='currentColor'
+                  strokeWidth='2'
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
+                  className='lucide lucide-linkedin hover:text-zinc-100'
+                >
+                  <path d='M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z' />
+                  <rect width='4' height='12' x='2' y='9' />
+                  <circle cx='4' cy='4' r='2' />
+                </svg>
+              </Link>
             </div>
           </div>
           <div className='xl:mr-28'>
@@ -443,10 +520,22 @@ export default function Home() {
                   Testimonials
                 </li>
               </Link>
+              <Link href={'#'}>
+                <li className='flex items-center gap-x-1 hover:text-zinc-100'>
+                  <ChevronRight className='size-4' />
+                  Blogs
+                </li>
+              </Link>
               <Link href={'#contact-us'}>
                 <li className='flex items-center gap-x-1 hover:text-zinc-100'>
                   <ChevronRight className='size-4' />
                   Contact Us
+                </li>
+              </Link>
+              <Link href={'/privacy-policy'}>
+                <li className='flex items-center gap-x-1 hover:text-zinc-100'>
+                  <ChevronRight className='size-4' />
+                  Privacy Policy
                 </li>
               </Link>
               <Link href={'#team'}>

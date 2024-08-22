@@ -5,34 +5,22 @@ import { motion } from 'framer-motion';
 
 const TESTIMONIALS = [
   {
-    username: 'JaneDoe123',
     description:
-      'Fantastic service! The team was incredibly helpful and the product exceeded my expectations.',
-    rating: 5,
+      'Flintz exceeded our expectations with personalized, data-driven solutions that helped us grow. Highly recommend!',
   },
   {
-    username: 'JohnSmith456',
     description:
-      'A solid experience. The customer support was prompt, but the delivery took longer than expected.',
-    rating: 4,
+      'Flintz transformed our business with innovative AI solutions that enhanced our efficiency. Their professionalism and dedication are unmatched!.',
   },
+
   {
-    username: 'EmilyJohnson789',
     description:
-      'I had a few issues with the order, but they were resolved quickly. Overall, a good experience.',
-    rating: 4,
+      'The only downside was that some technical details took longer to finalize than we anticipated, but overall, the service was solid.',
   },
+
   {
-    username: 'MichaelBrown101',
     description:
-      "Not satisfied with the product quality. The description didn't match what I received.",
-    rating: 2,
-  },
-  {
-    username: 'SarahWilliams202',
-    description:
-      'Excellent quality and fast shipping. Highly recommend to others looking for similar products.',
-    rating: 5,
+      'Flintz’s Social Media marketing services were a game-changer for our business. They helped us reach a bigger audience and saw real results in just a few months.',
   },
 ];
 
@@ -62,9 +50,6 @@ const Testimonials = () => {
                 {testimonial.description}
               </span>
             </div>
-            <h4 className='text-xl font-bold text-zinc-200 tracking-wide mt-5'>
-              {testimonial.username}
-            </h4>
           </div>
         ))}
       </motion.div>

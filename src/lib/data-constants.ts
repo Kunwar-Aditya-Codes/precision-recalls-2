@@ -53,37 +53,37 @@ export const SERVICES = [
     title: 'Web Development',
     description:
       'Building responsive and high-quality websites tailored to your business needs, ensuring seamless user experiences across all devices.',
-    image: '/services/web.png',
+    image: '/services/web.webp',
   },
   {
     title: 'App Development',
     description:
       'Creating intuitive and engaging mobile applications for iOS and Android platforms to enhance your business reach and user engagement.',
-    image: '/services/app.png',
+    image: '/services/app.webp',
   },
   {
     title: 'AI/ML',
     description:
       'Leveraging data to provide actionable insights and drive informed decision-making, helping you unlock the full potential of your data.',
-    image: '/services/data.png',
+    image: '/services/data.webp',
   },
   {
     title: 'Digital Marketing',
     description:
       'Developing comprehensive digital marketing strategies to boost your online presence, increase traffic, and drive conversions through SEO, PPC, and social media marketing.',
-    image: '/services/digital.png',
+    image: '/services/digital.webp',
   },
   {
     title: 'Software Development',
     description:
       'Designing and developing custom software solutions to streamline your business processes, improve efficiency, and meet your specific requirements.',
-    image: '/services/software.png',
+    image: '/services/software.webp',
   },
   {
     title: 'E-commerce Setup',
     description:
       'Setting up and optimizing your online store to ensure a smooth shopping experience for your customers, including payment gateway integration and inventory management.',
-    image: '/services/ecommerce.png',
+    image: '/services/ecommerce.webp',
   },
 ];
 
@@ -109,7 +109,7 @@ export const TEAM = [
     position: 'Digital Marketer/Creative Head',
 
     description:
-      'With 4 years of experience as a digital marketer, I specialize in creating impactful online strategies that drive results. My expertise covers social media advertising, content marketing, SEO, analytics, email marketing, and PPC campaigns. I excel at designing high-impact ad campaigns on platforms like Meta, crafting engaging content to build brand loyalty, and optimizing web presence for enhanced visibility, ensuring continuous improvement and measurable results.',
+      'With 4 years of experience as a digital marketer, specialised in creating impactful online strategies that drive results. The expertise spans across various domains including social media advertising, content marketing, SEO, analytics, email marketing, and PPC campaigns. Excel at designing high-impact ad campaigns on platforms like Meta, crafting engaging content to build brand loyalty, and optimising web presence for enhanced visibility. Our approach ensures continuous improvement and measurable results.',
   },
   {
     memberName: 'Garv Agarwal',
@@ -117,14 +117,6 @@ export const TEAM = [
 
     description:
       'Garv Agarwal is a skilled data scientist and software developer specializing in AI, Data Science, and Machine Learning. With hands-on experience in AI-driven applications and complex machine learning models, he combines technical expertise with deep data analysis skills. Proficient in Python, SQL, cloud computing, and advanced deep learning frameworks, Garv excels at creating innovative solutions for complex challenges. His dedication to continuous learning and excellence makes him a valuable asset in advancing technology.',
-  },
-
-  {
-    memberName: 'Kunwar Aditya',
-    position: 'Web Developer/Project Lead/Consultant',
-
-    description:
-      'As a full-stack developer, I leverage technologies like React, Node.js, Express, and Next.js to deliver top-tier software solutions. My expertise spans front-end and back-end development, enabling me to build responsive and scalable applications. I use React for dynamic, user-friendly interfaces and Node.js with Express for efficient, secure server-side logic. My goal is to integrate these technologies to create high-quality, secure, and intuitive software that performs optimally and is enjoyable to use.',
   },
 ];
 
@@ -137,7 +129,7 @@ export const ABOUT_US = [
       'Commit to fostering growth and learning.',
       'Continuously embrace and drive change.',
     ],
-    image: '/about/about-1.jpg',
+    image: '/about/about-1.webp',
     shadow: 'shadow-indigo-200',
     text: 'text-indigo-600',
     background: 'bg-gradient-to-b from-indigo-700 to-indigo-500',
@@ -150,7 +142,7 @@ export const ABOUT_US = [
       'Utilize reusable data pipelines and tools like Python, SQL, and AWS.',
       'Drive innovation, efficiency, and sustainable, cost-effective business outcome',
     ],
-    image: '/about/about-2.jpg',
+    image: '/about/about-2.webp',
     shadow: 'shadow-sky-200',
     text: 'text-sky-600',
     background: 'bg-gradient-to-b from-sky-700 to-sky-500',
@@ -163,7 +155,7 @@ export const ABOUT_US = [
       'Offer dedicated team rates based on experience.',
       'Provide fixed-cost quotes for budget-friendly solutions aligned with initial timelines.',
     ],
-    image: '/about/about-3.jpg',
+    image: '/about/about-3.webp',
     shadow: 'shadow-fuchsia-200',
     text: 'text-fuchsia-600',
     background: 'bg-gradient-to-b from-fuchsia-700 to-fuchsia-500',
@@ -177,7 +169,7 @@ export const ABOUT_US = [
       'Offer flexible pricing plans tailored to project needs.',
       'Expertise in hardware provisioning to algorithm development.',
     ],
-    image: '/about/about-4.jpg',
+    image: '/about/about-4.webp',
     shadow: 'shadow-teal-200',
     text: 'text-teal-600',
     background: 'bg-gradient-to-b from-teal-700 to-teal-500',

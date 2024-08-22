@@ -1,7 +1,6 @@
 'use client';
 
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
-import Image from 'next/image';
 
 const TiltCard = ({
   service,
@@ -96,7 +95,7 @@ const TiltCard = ({
         }}
         className={`bg-white   rounded-2xl p-4 h-full w-full`}
       >
-        <Image
+        <img
           style={{
             transform: 'translateZ(60px)',
           }}
