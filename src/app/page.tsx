@@ -31,15 +31,21 @@ const righteous = Lilita_One({
 
 export default function Home() {
   const form = useRef<HTMLFormElement | null>(null);
+  const consultationForm = useRef<HTMLFormElement | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [ctaOpen, setCtaOpen] = useState<boolean>(true);
+
+  const [userName, setUserName] = useState<string>('');
+  const [userEmail, setUserEmail] = useState<string>('');
+  const [userContact, setUserContact] = useState<string>('');
 
   const sendEmail = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
 
-    if (form.current)
-      emailjs //  service_pjxajqa , template_zuhpe0o, FWs2iXRB5REQskaqh
+    if (form.current) {
+      emailjs
+        //  service_pjxajqa , template_zuhpe0o, FWs2iXRB5REQskaqh
         .sendForm('service_bbd8ed3', 'template_snvjjou', form.current, {
           publicKey: 'QmrvpW6DFSh2mVBPN',
         })
@@ -60,6 +66,47 @@ export default function Home() {
         .finally(() => {
           setLoading(false);
         });
+    }
+  };
+
+  const sendConsultation = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setLoading(true);
+
+    const formData = {
+      user_name: userName,
+      user_email: userEmail,
+      user_contact: userContact,
+      message: 'Regarding Consultation',
+    };
+
+    if (consultationForm.current) {
+      emailjs
+        //  service_pjxajqa , template_zuhpe0o, FWs2iXRB5REQskaqh
+        .send('service_bbd8ed3', 'template_snvjjou', formData, {
+          publicKey: 'QmrvpW6DFSh2mVBPN',
+        })
+        .then(
+          () => {
+            toast.success('Email sent successfull!', {
+              duration: 1000,
+            });
+
+            setUserName('');
+            setUserEmail('');
+            setUserContact('');
+          },
+          (error) => {
+            toast.error('Something went wrong. Try again!', {
+              duration: 1000,
+            });
+            console.log('FAILED...', error.text);
+          }
+        )
+        .finally(() => {
+          setLoading(false);
+        });
+    }
   };
 
   return (
@@ -71,27 +118,37 @@ export default function Home() {
               onClick={() => setCtaOpen(false)}
               className='text-white cursor-pointer size-6 p-1 absolute right-4 top-4 border rounded-full'
             />
-            <h2 className='text-white  text-center text-2xl mt-6'>
+            <h2 className='text-white text-center text-2xl mt-6'>
               Book a free consultation
             </h2>
-            <form className='flex flex-col items-center gap-y-2 px-4 my-4'>
+            <form
+              ref={consultationForm}
+              onSubmit={sendConsultation}
+              className='flex flex-col items-center gap-y-2 px-4 my-4'
+            >
               <input
                 type='text'
+                value={userName}
                 placeholder='Your name'
                 name='user_name'
+                onChange={(e) => setUserName(e.target.value)}
                 className='p-2 w-full rounded-md  placeholder:text-zinc-600 focus-visible:outline-none focus-visible:border-sky-600 border-2 border-zinc-200   '
               />
               <input
                 placeholder='Email'
                 type='text'
                 name='user_email'
+                value={userEmail}
+                onChange={(e) => setUserEmail(e.target.value)}
                 className='p-2 rounded-md  placeholder:text-zinc-600 focus-visible:outline-none focus-visible:border-sky-600 border-2 border-zinc-200  w-full '
               />
               <input
                 type='number'
                 pattern='\d{10}'
                 name='user_contact'
+                value={userContact}
                 placeholder='Phone number'
+                onChange={(e) => setUserContact(e.target.value)}
                 className='p-2 rounded-md  placeholder:text-zinc-600 focus-visible:outline-none focus-visible:border-sky-600 border-2 border-zinc-200  w-full '
               />
               <textarea
@@ -378,7 +435,7 @@ export default function Home() {
             <form
               ref={form}
               onSubmit={sendEmail}
-              className='flex flex-col gap-y-6 w-full   p-8 rounded-lg bg-white'
+              className='flex flex-col gap-y-6 w-full p-8 rounded-lg bg-white'
             >
               <input
                 type='text'
