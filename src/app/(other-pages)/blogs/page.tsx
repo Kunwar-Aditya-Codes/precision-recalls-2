@@ -7,8 +7,11 @@ const Page = () => {
   return (
     <div className='mt-8'>
       {BLOGS.map((blog) => (
-        <h1 className='text-2xl font-bold text-dark-blue underline underline-offset-2'>
-          <Link key={blog.title} href={blog.link} className=''>
+        <h1
+          key={blog.title}
+          className='text-2xl font-bold text-dark-blue underline underline-offset-2'
+        >
+          <Link href={blog.link} className=''>
             {blog.title}
           </Link>
         </h1>
