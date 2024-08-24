@@ -39,9 +39,9 @@ export default function Home() {
     setLoading(true);
 
     if (form.current)
-      emailjs
-        .sendForm('service_pjxajqa', 'template_zuhpe0o', form.current, {
-          publicKey: 'FWs2iXRB5REQskaqh',
+      emailjs //  service_pjxajqa , template_zuhpe0o, FWs2iXRB5REQskaqh
+        .sendForm('service_bbd8ed3', 'template_snvjjou', form.current, {
+          publicKey: 'QmrvpW6DFSh2mVBPN',
         })
         .then(
           () => {
@@ -306,7 +306,7 @@ export default function Home() {
 
       {/* ***************** PROJECTS *********************** */}
       <section id='portfolio' className='md:px-6 overflow-x-hidden'>
-        <div className='bg-gradient-to-b from-sky-600 to-dark-blue pt-10 lg:px-24'>
+        <div className=' px-4 bg-gradient-to-b from-sky-600 to-dark-blue pt-10 lg:px-24'>
           <h2 className=' text-center py-4 px-12  mx-auto lg:mx-0 lg:text-start text-4xl lg:text-5xl xl:text-6xl font-bold border-4 border-white/40 rounded-2xl    w-fit text-white'>
             Featured Projects
           </h2>
@@ -326,7 +326,7 @@ export default function Home() {
 
       {/* ***************** TESTIMONIALS *********************** */}
       <section id='testimonials' className='md:px-6 overflow-x-hidden'>
-        <div className='bg-gradient-to-b from-sky-800 to-dark-blue py-16 lg:px-24'>
+        <div className='bg-gradient-to-b px-4 from-sky-800 to-dark-blue py-16 lg:px-24'>
           <h2 className=' text-center py-4 px-12  mx-auto lg:mx-0 lg:text-start text-4xl lg:text-5xl xl:text-6xl font-bold border-4 border-white/40 rounded-2xl   w-fit text-white'>
             What our clients have to say...
           </h2>
@@ -520,7 +520,7 @@ export default function Home() {
                   Testimonials
                 </li>
               </Link>
-              <Link href={'#'}>
+              <Link href={'/blogs'}>
                 <li className='flex items-center gap-x-1 hover:text-zinc-100'>
                   <ChevronRight className='size-4' />
                   Blogs

@@ -175,3 +175,10 @@ export const ABOUT_US = [
     background: 'bg-gradient-to-b from-teal-700 to-teal-500',
   },
 ];
+
+export const BLOGS = [
+  {
+    title: 'Paid Advertising: Everything you want to know',
+    link: '/blogs/paid-advertising',
+  },
+];

@@ -2,6 +2,7 @@
 
 import { Quote } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
 
 const TESTIMONIALS = [
   {
@@ -29,20 +30,20 @@ const Testimonials = () => {
     <div className='mt-16  md:[mask-image:linear-gradient(to_right,transparent_0%,black_15%,black_85%,transparent_100%)]'>
       <motion.div
         animate={{
-          translateX: '-50%',
+          translateX: ['0%', '-100%'],
         }}
         transition={{
-          duration: 15,
-          repeat: Infinity,
+          duration: 20,
           ease: 'linear',
           repeatType: 'loop',
+          repeat: Infinity,
         }}
         className='flex items-center gap-x-8'
       >
-        {TESTIMONIALS.map((testimonial, index) => (
+        {[...TESTIMONIALS, ...TESTIMONIALS].map((testimonial, index) => (
           <div
             key={index}
-            className='bg-white/15 shrink-0 max-w-[25rem] h-[16rem] border-2 border-white/30 text-white p-8 rounded-3xl  shadow-2xl '
+            className='bg-white/15 shrink-0 max-w-[25rem] h-[16rem] border-2 border-white/30 text-white p-8 rounded-3xl shadow-2xl '
           >
             <div className='italic flex flex-col gap-y-2 h-[80%]'>
               <Quote className='rotate-180 size-8 fill-white' />

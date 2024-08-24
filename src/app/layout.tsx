@@ -1,9 +1,8 @@
-import type { Metadata } from 'next';
-import { Roboto } from 'next/font/google';
 import { Toaster } from '@/components/ui/sonner';
+import { Roboto } from 'next/font/google';
 
-import './globals.css';
 import { constructMetadata } from '@/lib/utils';
+import './globals.css';
 
 const inter = Roboto({
   subsets: ['latin-ext'],

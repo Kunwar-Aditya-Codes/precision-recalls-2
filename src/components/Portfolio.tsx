@@ -15,23 +15,22 @@ const Portfolio = () => {
       <Carousel
         opts={{
           align: 'start',
-          dragFree: true,
         }}
       >
-        <CarouselContent className='mx-1 gap-x-4 pr-8'>
+        <CarouselContent className='mx-1 gap-x-4 '>
           {PROJECTS.map((project, index) => (
             <CarouselItem
               key={index}
               style={{
                 backgroundImage: `url(${project.image})`,
               }}
-              className='bg-black/80 border border-zinc-800 bg-blend-color bg-no-repeat bg-cover bg-center  aspect-auto py-6 md:basis-1/2 px-4 lg:basis-1/3 rounded-2xl'
+              className='bg-black/80 border border-zinc-800 bg-blend-color bg-no-repeat bg-cover bg-center  aspect-auto py-6 md:basis-1/2 px-4 lg:basis-1/3 rounded-2xl scale-90'
             >
               <div className='xl:h-[28rem] flex flex-col gap-y-10 '>
                 <h1 className='text-2xl md:text-3xl font-bold text-white'>
                   {project.title}
                 </h1>
-                <p className='text-zinc-200 text-justify text-balance '>
+                <p className='text-zinc-200 text-balance '>
                   {project.description}
                 </p>
                 {project.client.length > 0 && (
