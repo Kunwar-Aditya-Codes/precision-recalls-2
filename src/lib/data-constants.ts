@@ -163,7 +163,6 @@ export const ABOUT_US = [
   {
     title: 'Why Choose Us ?',
     description: [
-      ' Team of 10 experienced Data Scientists.',
       'Delivered projects worth over 50 lakhs within 1.5 years.',
       '92% of clients renew contracts.',
       'Offer flexible pricing plans tailored to project needs.',
